@@ -1,0 +1,122 @@
+@import 'tailwindcss';
+
+/* Brand tokens — sampled from the official SSIB logo (copper monogram, silver tagline) */
+@theme {
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Archivo', 'Inter', ui-sans-serif, system-ui, sans-serif;
+
+  --color-copper-50: #fdf3ee;
+  --color-copper-100: #fbe3d7;
+  --color-copper-200: #fec5a9;
+  --color-copper-300: #eba88a;
+  --color-copper-400: #dd8c6d;
+  --color-copper-500: #c8714f;
+  --color-copper-600: #a85a3b;
+  --color-copper-700: #8d4528;
+  --color-copper-800: #6e341e;
+
+  --color-silver-50: #f7f7f7;
+  --color-silver-100: #ededee;
+  --color-silver-200: #dadadb;
+  --color-silver-300: #c4c4c5;
+  --color-silver-400: #a4a4a5;
+  --color-silver-500: #858586;
+  --color-silver-600: #636363;
+
+  --color-ink-950: #0f1012;
+  --color-ink-900: #16181b;
+  --color-ink-800: #1f2226;
+  --color-ink-700: #2c2f34;
+  --color-ink-600: #45484e;
+  --color-ink-500: #5d6066;
+
+  --color-paper: #f6f5f3;
+
+  --ease-premium: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+  body {
+    @apply bg-paper font-sans text-ink-800 antialiased;
+    overflow-x: hidden;
+  }
+  section[id] {
+    scroll-margin-top: 72px;
+  }
+  ::selection {
+    background: var(--color-copper-200);
+    color: var(--color-ink-900);
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-copper-500);
+    outline-offset: 3px;
+  }
+}
+
+@layer components {
+  .font-display {
+    font-family: var(--font-display);
+    font-stretch: 108%;
+  }
+  .container-x {
+    @apply mx-auto w-full max-w-330 px-5 sm:px-8 lg:px-12;
+  }
+  .eyebrow {
+    @apply inline-flex items-center gap-3 text-[0.72rem] font-semibold tracking-[0.22em] uppercase;
+  }
+  .eyebrow::before {
+    content: '';
+    @apply block h-px w-8 bg-current opacity-60;
+  }
+  .text-copper-gradient {
+    background: linear-gradient(100deg, #8d4528 0%, #c8714f 35%, #eba88a 60%, #a85a3b 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .text-copper-gradient-light {
+    background: linear-gradient(100deg, #fec5a9 0%, #eba88a 40%, #dd8c6d 70%, #fbe3d7 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .silver-sheen {
+    background:
+      linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0) 40%),
+      linear-gradient(160deg, #f7f7f7 0%, #e4e4e5 55%, #d2d2d4 100%);
+  }
+  .grain::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.05;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+.animate-marquee {
+  animation: marquee 48s linear infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee {
+    animation: none;
+  }
+}
