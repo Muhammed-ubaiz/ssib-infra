@@ -127,10 +127,10 @@ export const services = [
     title: 'Building Works',
     short: 'Civil construction',
     description:
-      'Construction of toll buildings, institutional and support buildings, from structure to finishing.',
-    highlights: ['Toll building, Shivalaya Construction', 'Central Kitchen, Lulu', 'Hidayathul Islam Madrassa'],
-    image: img('toll-building'),
-    alt: 'Multi-storey toll building under construction by SSIB',
+      'Turnkey construction of multi-lane toll plazas, institutional facilities, central kitchens, and commercial support structures.',
+    highlights: ['NHAI Toll Plaza & Building, Shivalaya', 'Central Kitchen, Lulu', 'Hidayathul Islam Madrassa'],
+    image: img('nhai-toll-plaza-building.jpg'),
+    alt: 'Completed NHAI multi-lane toll plaza and administrative building constructed by SSIB',
   },
   {
     id: 'bitumen',
@@ -202,6 +202,17 @@ export const featuredProjects = [
     image: img('subgrade-earthworks-bulldozer.jpg'),
     alt: 'Earth excavation and sub-base formation with bulldozer and site team',
     specs: 'Heavy Earthmoving · Precision Laser Subgrade Levelling',
+  },
+  {
+    title: 'NHAI Multi-Lane Toll Plaza & Building',
+    location: 'NH 66 Corridor, Kerala',
+    client: 'Shivalaya Construction Ltd',
+    category: 'Building',
+    value: '₹3.5 Cr',
+    status: 'Completed',
+    image: img('nhai-toll-plaza-building.jpg'),
+    alt: 'Completed NHAI multi-lane toll plaza and administrative building constructed by SSIB',
+    specs: 'Multi-Storey Elevated Toll Facility · FASTag Canopy & Lanes',
   },
   {
     title: 'Finished Asphalt Highway & Kerb Drainage',
@@ -451,6 +462,10 @@ export const gallery = [
   { src: img('crowne-plaza-paving-finished.jpg'), category: 'Paving Tiles', caption: 'Crowne Plaza Kochi — Finished heavy-duty interlocking paver roadway' },
   { src: img('commercial-parking-interlock.jpg'), category: 'Paving Tiles', caption: 'Commercial convention complex — Heavy-duty interlocking paver installation' },
 
+  // Commercial & Institutional Building Works
+  { src: img('nhai-toll-plaza-building.jpg'), category: 'Building', caption: 'NHAI Toll Plaza & Administrative Building — Multi-lane elevated toll facility on NH 66 corridor' },
+  { src: img('toll-building.webp'), category: 'Building', caption: 'Shivalaya Construction Toll Building — Structural concrete execution and elevation works' },
+
   // Heavy Machinery & Specialized Paver Fleet
   { src: img('apollo-sensor-paver-highway.jpg'), category: 'Machinery', caption: 'Apollo AP 600 sensor paver laying hot mix asphalt on highway works' },
   { src: img('volvo-roller-compaction.jpg'), category: 'Machinery', caption: 'Volvo asphalt vibratory compactor rolling fresh bituminous layer' },
@@ -551,8 +566,8 @@ export const expertiseServices = [
     title: 'Commercial Construction',
     category: 'Institutional & Corporate Buildings',
     description: 'Turnkey civil construction of multi-lane toll buildings, institutional facilities, central kitchens, and commercial support structures.',
-    highlights: ['Shivalaya Toll Buildings', 'Central Kitchen for Lulu', 'Hidayathul Islam Madrassa'],
-    image: img('toll-building'),
+    highlights: ['Shivalaya NHAI Toll Buildings', 'Central Kitchen for Lulu', 'Hidayathul Islam Madrassa'],
+    image: img('nhai-toll-plaza-building.jpg'),
   },
   {
     num: '04',
