@@ -6,7 +6,7 @@ const ease = [0.22, 1, 0.36, 1]
 
 export default function PageHeader({ eyebrow, title, intro, image, children, className = '' }) {
   return (
-    <section className={`relative isolate flex min-h-[100svh] lg:h-screen lg:max-h-[880px] flex-col justify-between overflow-hidden bg-ink-950 pt-24 pb-8 text-white sm:pt-28 sm:pb-10 ${className}`}>
+    <section className={`relative isolate flex min-h-svh lg:h-screen lg:max-h-[880px] flex-col justify-between overflow-hidden bg-ink-950 pt-20 pb-5 text-white sm:pt-28 sm:pb-10 ${className}`}>
       <motion.img
         src={image}
         alt=""
@@ -43,22 +43,17 @@ export default function PageHeader({ eyebrow, title, intro, image, children, cla
               </li>
             </ol>
           </nav>
-
-          <span className="inline-flex items-center gap-2 rounded-sm border border-copper-400/40 bg-copper-950/60 px-3 py-1 text-[0.65rem] font-semibold tracking-[0.2em] text-copper-200 uppercase backdrop-blur-md">
-            <span className="h-1.5 w-1.5 rounded-full bg-copper-400 animate-pulse" />
-            SSIB Infra Builders
-          </span>
         </motion.div>
 
-        <div className="my-auto py-4 sm:py-6 max-w-5xl">
-          <h1 className="font-display overflow-hidden text-3xl sm:text-5xl lg:text-[3.6rem] xl:text-[4rem] font-extrabold tracking-[-0.03em] leading-[1.02] text-balance">
+        <div className="my-auto py-3 sm:py-6 max-w-5xl">
+          <h1 className="font-display overflow-hidden text-2xl sm:text-5xl lg:text-[3.6rem] xl:text-[4rem] font-extrabold tracking-[-0.03em] leading-[1.05] sm:leading-[1.02] text-balance">
             <motion.span className="block" initial={{ y: '100%' }} animate={{ y: '0%' }} transition={{ duration: 1, ease, delay: 0.15 }}>
               {title}
             </motion.span>
           </h1>
           {intro && (
             <motion.p
-              className="mt-3.5 sm:mt-4 max-w-3xl text-sm sm:text-base lg:text-lg leading-relaxed text-silver-200 font-light"
+              className="mt-2.5 sm:mt-4 max-w-3xl text-xs sm:text-base lg:text-lg leading-relaxed text-silver-200 font-light"
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.9, ease, delay: 0.35 }}
@@ -74,7 +69,7 @@ export default function PageHeader({ eyebrow, title, intro, image, children, cla
           </motion.div>
         ) : (
           <div className="w-full border-t border-white/10 pt-3 sm:pt-4 flex flex-wrap items-center justify-between text-xs font-mono text-silver-400 uppercase">
-            <span>A-Class Govt. Licensed Infrastructure Contractor · Est. 2005</span>
+            <span>SSIB Infrastructure Engineering</span>
             <span className="text-copper-300">Highway · Earthworks · Paving · Bitumen Plants</span>
           </div>
         )}

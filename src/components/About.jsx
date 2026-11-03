@@ -21,14 +21,6 @@ export default function About() {
 
   return (
     <section id="about" className="relative bg-paper py-16 sm:py-24 overflow-hidden">
-      {/* Decorative architectural grid line accents */}
-      <div className="absolute inset-0 pointer-events-none opacity-30">
-        <div className="container-x h-full relative">
-          <div className="absolute left-6 sm:left-12 top-0 bottom-0 w-px bg-silver-300" />
-          <div className="absolute right-6 sm:right-12 top-0 bottom-0 w-px bg-silver-300" />
-        </div>
-      </div>
-
       <div className="container-x relative">
         {/* Asymmetric Editorial Grid */}
         <div className="grid gap-16 lg:grid-cols-12 lg:gap-14 items-center">

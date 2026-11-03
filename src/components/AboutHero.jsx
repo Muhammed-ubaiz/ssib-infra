@@ -66,20 +66,8 @@ export default function AboutHero() {
         </motion.nav>
 
         <div className="mt-3 sm:mt-4 max-w-4xl">
-          {/* Eyebrow Badge */}
-          <motion.div
-            initial={{ opacity: 0, y: 14 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease, delay: 0.1 }}
-          >
-            <span className="inline-flex items-center gap-2 border border-copper-400/40 bg-copper-950/60 px-3 py-1 text-[0.65rem] font-semibold tracking-[0.2em] text-copper-200 uppercase backdrop-blur-md">
-              <span className="h-1.5 w-1.5 rounded-full bg-copper-400" />
-              Two Decades of Engineering Excellence · Est. {company.founded}
-            </span>
-          </motion.div>
-
           {/* Large Bold Headline */}
-          <h1 className="font-display mt-3 text-2xl sm:text-4xl md:text-5xl lg:text-[3.3rem] font-extrabold tracking-[-0.03em] leading-[1.02] text-white">
+          <h1 className="font-display mt-2 sm:mt-3 text-2xl sm:text-4xl md:text-5xl lg:text-[3.3rem] font-extrabold tracking-[-0.03em] leading-[1.02] text-white">
             <span className="block overflow-hidden py-0.5">
               <motion.span
                 className="block"

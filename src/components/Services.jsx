@@ -93,7 +93,7 @@ export default function Services() {
                   ref={(el) => (itemRefs.current[index] = el)}
                   onMouseEnter={() => handleSelect(index)}
                   onClick={() => handleSelect(index)}
-                  className={`group relative py-7 sm:py-8 transition-all duration-300 cursor-pointer ${
+                  className={`group relative px-4 sm:px-6 py-6 sm:py-7 rounded-sm transition-all duration-300 cursor-pointer ${
                     isActive ? 'bg-white/[0.04]' : 'hover:bg-white/[0.02]'
                   }`}
                 >
@@ -140,11 +140,11 @@ export default function Services() {
                       aria-label={`Explore ${service.title} details`}
                       className={`flex h-10 w-10 shrink-0 items-center justify-center border transition-all duration-300 ease-premium ${
                         isActive
-                          ? 'border-copper-500 bg-copper-600 text-white translate-x-1 shadow-md'
+                          ? 'border-copper-500 bg-copper-600 text-white shadow-md'
                           : 'border-white/15 bg-white/5 text-silver-400 group-hover:border-white/30 group-hover:text-white'
                       }`}
                     >
-                      <ArrowUpRight className="h-4 w-4" />
+                      <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                     </Link>
                   </div>
 

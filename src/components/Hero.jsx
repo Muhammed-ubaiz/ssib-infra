@@ -113,21 +113,8 @@ export default function Hero() {
         className="w-full max-w-[1560px] mx-auto px-5 sm:px-8 lg:px-14 relative z-10 flex flex-1 flex-col justify-center pt-28 pb-12 sm:pt-36 sm:pb-16"
       >
         <div className="max-w-5xl">
-          {/* Eyebrow badge */}
-          <motion.div
-            initial={{ opacity: 0, y: 14 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease, delay: 0.1 }}
-            className="flex items-center gap-3"
-          >
-            <span className="inline-flex items-center gap-2 border border-copper-400/40 bg-copper-950/60 px-3.5 py-1 text-[0.68rem] font-semibold tracking-[0.2em] text-copper-200 uppercase backdrop-blur-md">
-              <span className="h-1.5 w-1.5 rounded-full bg-copper-400 animate-pulse" />
-              A-Class Infrastructure Contractor · Est. {company.founded}
-            </span>
-          </motion.div>
-
           {/* Large Headline: "BUILDING BEYOND EXPECTATIONS." */}
-          <h1 className="font-display mt-6 text-[2.6rem] leading-[0.98] font-extrabold tracking-[-0.03em] text-white sm:text-6xl md:text-7xl lg:text-[5.4rem]">
+          <h1 className="font-display mt-2 sm:mt-4 text-[2.6rem] leading-[0.98] font-extrabold tracking-[-0.03em] text-white sm:text-6xl md:text-7xl lg:text-[5.4rem]">
             <span className="block overflow-hidden py-0.5">
               <motion.span
                 className="block text-white"

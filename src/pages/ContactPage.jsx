@@ -148,49 +148,49 @@ export default function ContactPage() {
         intro="Connect directly with our Ernakulam engineering headquarters to discuss your civil, highway, bulk earthworks, or building requirements."
         image="/images/township-road-bitumen-tarring.jpg"
       >
-        <div className="border-t border-white/15 pt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5 sm:gap-4">
-          <div className="rounded-sm border border-white/15 bg-ink-950/75 p-4 sm:p-5 backdrop-blur-md transition-colors hover:border-copper-400/50">
-            <p className="text-[0.7rem] sm:text-xs font-mono font-semibold tracking-widest text-copper-400 uppercase">Head Office</p>
-            <p className="mt-1.5 font-display text-sm sm:text-base font-bold text-white leading-snug">
+        <div className="border-t border-white/15 pt-3 sm:pt-6 grid grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-4">
+          <div className="rounded-sm border border-white/15 bg-ink-950/80 p-2.5 sm:p-5 backdrop-blur-md transition-colors hover:border-copper-400/50">
+            <p className="text-[0.62rem] sm:text-xs font-mono font-semibold tracking-wider text-copper-400 uppercase">Head Office</p>
+            <p className="mt-1 font-display text-xs sm:text-base font-bold text-white leading-snug">
               Mareena Centre, Container Rd
             </p>
-            <p className="mt-0.5 text-xs text-silver-300 font-light">
+            <p className="mt-0.5 text-[0.68rem] sm:text-xs text-silver-300 font-light truncate sm:text-clip">
               Kothad P.O., Ernakulam – 682027
             </p>
           </div>
 
-          <div className="rounded-sm border border-white/15 bg-ink-950/75 p-4 sm:p-5 backdrop-blur-md transition-colors hover:border-copper-400/50">
-            <p className="text-[0.7rem] sm:text-xs font-mono font-semibold tracking-widest text-copper-400 uppercase">Founder &amp; MD Desk</p>
+          <div className="rounded-sm border border-white/15 bg-ink-950/80 p-2.5 sm:p-5 backdrop-blur-md transition-colors hover:border-copper-400/50">
+            <p className="text-[0.62rem] sm:text-xs font-mono font-semibold tracking-wider text-copper-400 uppercase">Founder &amp; MD Desk</p>
             <a
               href="tel:+919846902000"
-              className="mt-1.5 block font-display text-base sm:text-lg lg:text-xl font-bold tracking-tight text-white hover:text-copper-300 transition-colors"
+              className="mt-1 block font-display text-xs sm:text-lg lg:text-xl font-bold tracking-tight text-white hover:text-copper-300 transition-colors"
             >
               +91 98469 02000
             </a>
-            <p className="mt-0.5 text-xs text-silver-300 font-light">
+            <p className="mt-0.5 text-[0.68rem] sm:text-xs text-silver-300 font-light">
               Mr. Shihas P. I · Direct Line
             </p>
           </div>
 
-          <div className="rounded-sm border border-white/15 bg-ink-950/75 p-4 sm:p-5 backdrop-blur-md transition-colors hover:border-copper-400/50">
-            <p className="text-[0.7rem] sm:text-xs font-mono font-semibold tracking-widest text-copper-400 uppercase">Official Tenders</p>
+          <div className="rounded-sm border border-white/15 bg-ink-950/80 p-2.5 sm:p-5 backdrop-blur-md transition-colors hover:border-copper-400/50">
+            <p className="text-[0.62rem] sm:text-xs font-mono font-semibold tracking-wider text-copper-400 uppercase">Official Tenders</p>
             <a
               href="mailto:shihaskyline2000@gmail.com"
-              className="mt-1.5 block font-display text-xs sm:text-sm lg:text-[0.92rem] font-bold text-white truncate hover:text-copper-300 transition-colors"
+              className="mt-1 block font-display text-xs sm:text-sm lg:text-[0.92rem] font-bold text-white truncate hover:text-copper-300 transition-colors"
             >
               shihaskyline2000@gmail.com
             </a>
-            <p className="mt-0.5 text-xs text-silver-300 font-light">
+            <p className="mt-0.5 text-[0.68rem] sm:text-xs text-silver-300 font-light">
               Direct Engineering Review
             </p>
           </div>
 
-          <div className="rounded-sm border border-white/15 bg-ink-950/75 p-4 sm:p-5 backdrop-blur-md transition-colors hover:border-copper-400/50">
-            <p className="text-[0.7rem] sm:text-xs font-mono font-semibold tracking-widest text-copper-400 uppercase">Office Hours</p>
-            <p className="mt-1.5 font-display text-sm sm:text-base font-bold text-white leading-snug">
+          <div className="rounded-sm border border-white/15 bg-ink-950/80 p-2.5 sm:p-5 backdrop-blur-md transition-colors hover:border-copper-400/50">
+            <p className="text-[0.62rem] sm:text-xs font-mono font-semibold tracking-wider text-copper-400 uppercase">Office Hours</p>
+            <p className="mt-1 font-display text-xs sm:text-base font-bold text-white leading-snug">
               Mon – Sat · 9 AM – 6:30 PM
             </p>
-            <p className="mt-0.5 text-xs text-silver-300 font-light">
+            <p className="mt-0.5 text-[0.68rem] sm:text-xs text-silver-300 font-light">
               Site Operations: 24/7 Active
             </p>
           </div>
