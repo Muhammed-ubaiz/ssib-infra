@@ -1,87 +1,146 @@
 import { Link } from 'react-router'
-import { ArrowUp, FileText } from 'lucide-react'
-import { LogoFull } from './ui/Logo'
+import { ArrowUp, Mail, MapPin, Phone, ShieldCheck } from 'lucide-react'
+import { LogoLockup } from './ui/Logo'
 import { company, contact, navLinks, services } from '../data/site'
+
+const socialLinks = [
+  { name: 'LinkedIn', href: 'https://linkedin.com' },
+  { name: 'Instagram', href: 'https://instagram.com' },
+  { name: 'Facebook', href: 'https://facebook.com' },
+]
 
 export default function Footer() {
   const year = new Date().getFullYear()
 
   return (
-    <footer className="relative border-t border-silver-200 bg-paper">
-      <div className="container-x grid gap-12 py-16 sm:py-20 md:grid-cols-2 lg:grid-cols-12">
-        <div className="lg:col-span-4">
-          <LogoFull className="w-32" />
-          <p className="mt-6 max-w-xs text-sm leading-relaxed text-ink-500">{company.intro}</p>
-        </div>
+    <footer className="relative border-t border-white/10 bg-ink-950 text-white overflow-hidden">
+      {/* Subtle ambient lighting */}
+      <div className="absolute top-0 right-0 -mr-40 -mt-40 h-96 w-96 rounded-full bg-copper-600/10 blur-[130px] pointer-events-none" />
+      <div className="grain absolute inset-0 opacity-15 pointer-events-none" />
 
-        <nav aria-label="Footer" className="lg:col-span-2">
-          <h2 className="text-xs font-semibold tracking-[0.18em] text-ink-900 uppercase">Quick links</h2>
-          <ul className="mt-5 space-y-3 text-sm">
-            {navLinks.map((l) => (
-              <li key={l.to}>
-                <Link to={l.to} className="text-ink-500 transition-colors hover:text-copper-700">
-                  {l.label}
-                </Link>
-              </li>
-            ))}
-            <li>
-              <a href={company.profilePdf} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-ink-500 transition-colors hover:text-copper-700">
-                Company Profile <FileText className="h-3.5 w-3.5" aria-hidden="true" />
-              </a>
-            </li>
-          </ul>
-        </nav>
+      {/* Main Footer Links Grid */}
+      <div className="container-x relative py-20 lg:py-24">
+        <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-12 lg:gap-8">
+          {/* Brand Column */}
+          <div className="lg:col-span-4 lg:pr-8">
+            <Link to="/" aria-label="SSIB Infra Builders — Home" className="inline-block">
+              <LogoLockup tone="dark" />
+            </Link>
 
-        <div className="lg:col-span-3">
-          <h2 className="text-xs font-semibold tracking-[0.18em] text-ink-900 uppercase">Services</h2>
-          <ul className="mt-5 space-y-3 text-sm">
-            {services.map((s) => (
-              <li key={s.id}>
-                <Link to={`/services#${s.id}`} className="text-ink-500 transition-colors hover:text-copper-700">
-                  {s.title}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
+            <p className="mt-6 text-sm leading-relaxed text-silver-300 font-light max-w-sm">
+              {company.intro}
+            </p>
 
-        <div className="lg:col-span-3">
-          <h2 className="text-xs font-semibold tracking-[0.18em] text-ink-900 uppercase">Contact</h2>
-          <address className="mt-5 space-y-3 text-sm leading-relaxed text-ink-500 not-italic">
-            <p>
-              {contact.addressLines.map((l) => (
-                <span key={l} className="block">
-                  {l}
-                </span>
+            <div className="mt-6 inline-flex items-center gap-2 border border-copper-500/40 bg-copper-900/30 px-3.5 py-1.5 text-xs text-copper-200">
+              <ShieldCheck className="h-4 w-4 text-copper-400 shrink-0" />
+              <span>A-Class Government Licenced Contractor</span>
+            </div>
+
+            {/* Social Media Links */}
+            <div className="mt-6 flex items-center gap-4 text-xs font-mono uppercase tracking-wider text-silver-400">
+              {socialLinks.map((s) => (
+                <a
+                  key={s.name}
+                  href={s.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-copper-300 transition-colors"
+                >
+                  {s.name}
+                </a>
               ))}
-            </p>
-            <p>
-              <a href={contact.phoneHref} className="transition-colors hover:text-copper-700">
-                {contact.phone}
-              </a>
-            </p>
-            <p>
-              <a href={`mailto:${contact.email}`} className="break-all transition-colors hover:text-copper-700">
-                {contact.email}
-              </a>
-            </p>
-          </address>
+            </div>
+          </div>
+
+          {/* Quick Links Column */}
+          <nav aria-label="Footer Navigation" className="lg:col-span-2">
+            <h3 className="font-mono text-xs font-bold tracking-[0.2em] text-copper-400 uppercase">
+              Navigation
+            </h3>
+            <ul className="mt-6 space-y-3 text-sm">
+              {navLinks.map((link) => (
+                <li key={link.to}>
+                  <Link
+                    to={link.to}
+                    className="text-silver-300 transition-colors duration-200 hover:text-white hover:translate-x-1 inline-block"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+
+          {/* Disciplines / Services Column */}
+          <div className="lg:col-span-3">
+            <h3 className="font-mono text-xs font-bold tracking-[0.2em] text-copper-400 uppercase">
+              Disciplines
+            </h3>
+            <ul className="mt-6 space-y-3 text-sm">
+              {services.map((service) => (
+                <li key={service.id}>
+                  <Link
+                    to={`/services#${service.id}`}
+                    className="text-silver-300 transition-colors duration-200 hover:text-white"
+                  >
+                    {service.title}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Contact Column */}
+          <div className="lg:col-span-3">
+            <h3 className="font-mono text-xs font-bold tracking-[0.2em] text-copper-400 uppercase">
+              Corporate Office
+            </h3>
+            <address className="mt-6 space-y-3 text-sm leading-relaxed text-silver-300 not-italic">
+              <p className="flex items-start gap-2.5">
+                <MapPin className="h-4 w-4 text-copper-400 shrink-0 mt-1" />
+                <span>
+                  {contact.addressLines.map((line) => (
+                    <span key={line} className="block">
+                      {line}
+                    </span>
+                  ))}
+                </span>
+              </p>
+              <p className="flex items-center gap-2.5 pt-2">
+                <Phone className="h-4 w-4 text-copper-400 shrink-0" />
+                <a href={contact.phoneHref} className="hover:text-copper-300 transition-colors">
+                  {contact.phone}
+                </a>
+              </p>
+              <p className="flex items-center gap-2.5">
+                <Mail className="h-4 w-4 text-copper-400 shrink-0" />
+                <a href={`mailto:${contact.email}`} className="break-all hover:text-copper-300 transition-colors">
+                  {contact.email}
+                </a>
+              </p>
+              <p className="text-xs text-silver-500 pt-2 font-mono">
+                GSTIN: {contact.gstin}
+              </p>
+            </address>
+          </div>
         </div>
       </div>
 
-      <div className="border-t border-silver-200">
-        <div className="container-x flex flex-col items-start justify-between gap-4 py-6 text-xs text-silver-600 sm:flex-row sm:items-center">
-          <p>
-            © {year} {company.name}. All rights reserved.
-          </p>
-          <p>GSTIN {contact.gstin}</p>
-          <button
-            type="button"
-            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            className="inline-flex min-h-10 items-center gap-2 font-semibold text-ink-700 transition-colors hover:text-copper-700"
-          >
-            Back to top <ArrowUp className="h-3.5 w-3.5" aria-hidden="true" />
-          </button>
+      {/* Copyright Bar */}
+      <div className="border-t border-white/10 bg-black/40 py-6">
+        <div className="container-x flex flex-col items-center justify-between gap-4 text-xs text-silver-400 sm:flex-row">
+          <p>© {year} {company.name}. All rights reserved.</p>
+          <div className="flex items-center gap-6">
+            <span>A-Class Contractor · Kerala, India</span>
+            <button
+              type="button"
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+              className="inline-flex items-center gap-2 font-semibold text-copper-300 hover:text-white transition-colors"
+            >
+              <span>Back to Top</span>
+              <ArrowUp className="h-3.5 w-3.5" aria-hidden="true" />
+            </button>
+          </div>
         </div>
       </div>
     </footer>

@@ -32,7 +32,7 @@ export function RevealImage({ src, alt, className = '', imgClassName = '', delay
         alt={alt}
         loading={loading}
         decoding="async"
-        className={`h-full w-full object-cover ${imgClassName}`}
+        className={`img-premium h-full w-full object-cover ${imgClassName}`}
         initial={{ scale: 1.12 }}
         whileInView={{ scale: 1 }}
         viewport={{ once: true }}

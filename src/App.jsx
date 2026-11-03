@@ -1,14 +1,29 @@
+import { Suspense, lazy } from 'react'
 import { MotionConfig } from 'framer-motion'
 import { Route, Routes } from 'react-router'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import ScrollManager from './components/ScrollManager'
 import HomePage from './pages/HomePage'
-import AboutPage from './pages/AboutPage'
-import ProjectsPage from './pages/ProjectsPage'
-import ServicesPage from './pages/ServicesPage'
-import ContactPage from './pages/ContactPage'
-import NotFoundPage from './pages/NotFoundPage'
+
+// Lazy load secondary routes for optimal initial page performance
+const AboutPage = lazy(() => import('./pages/AboutPage'))
+const ProjectsPage = lazy(() => import('./pages/ProjectsPage'))
+const ServicesPage = lazy(() => import('./pages/ServicesPage'))
+const ClientsPage = lazy(() => import('./pages/ClientsPage'))
+const ContactPage = lazy(() => import('./pages/ContactPage'))
+const NotFoundPage = lazy(() => import('./pages/NotFoundPage'))
+
+function PageFallback() {
+  return (
+    <div className="flex min-h-[60vh] items-center justify-center bg-paper">
+      <div className="flex items-center gap-3 text-xs font-mono font-semibold tracking-widest text-copper-700 uppercase">
+        <span className="h-2 w-2 rounded-full bg-copper-600 animate-ping" />
+        <span>Loading SSIB Architecture...</span>
+      </div>
+    </div>
+  )
+}
 
 export default function App() {
   return (
@@ -22,14 +37,17 @@ export default function App() {
       </a>
       <Navbar />
       <main id="main">
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="/projects" element={<ProjectsPage />} />
-          <Route path="/services" element={<ServicesPage />} />
-          <Route path="/contact" element={<ContactPage />} />
-          <Route path="*" element={<NotFoundPage />} />
-        </Routes>
+        <Suspense fallback={<PageFallback />}>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/projects" element={<ProjectsPage />} />
+            <Route path="/services" element={<ServicesPage />} />
+            <Route path="/clients" element={<ClientsPage />} />
+            <Route path="/contact" element={<ContactPage />} />
+            <Route path="*" element={<NotFoundPage />} />
+          </Routes>
+        </Suspense>
       </main>
       <Footer />
     </MotionConfig>

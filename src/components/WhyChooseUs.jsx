@@ -5,40 +5,60 @@ import { fleet, objectives, strengths } from '../data/site'
 
 const icons = { BadgeCheck, Factory, Handshake, Leaf, Truck, Users }
 
-/** Key strengths — "Quality is our priority" (company profile, page 2). */
+/** Key strengths — Why Choose SSIB (Company profile page 2). */
 export function Strengths() {
   return (
-    <section id="why-ssib" className="relative bg-paper py-24 sm:py-32" aria-labelledby="why-heading">
-      <div className="container-x">
+    <section id="why-ssib" className="relative bg-ink-950 text-white py-28 sm:py-36 overflow-hidden border-t border-white/10" aria-labelledby="why-heading">
+      <div className="absolute inset-0 bg-[radial-gradient(#ffffff08_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none" />
+      <div className="grain absolute inset-0 opacity-15 pointer-events-none" />
+
+      <div className="container-x relative">
         <div className="grid gap-14 lg:grid-cols-12 lg:items-end lg:gap-12">
           <div className="lg:col-span-7">
             <SectionHeading
-              eyebrow="Why choose SSIB Infra"
-              title={<span id="why-heading">Quality is our priority.</span>}
-              intro="It is the first line of our company profile — and the standard behind every road, cut and structure we deliver."
+              tone="dark"
+              eyebrow="Why Choose SSIB"
+              title={<span id="why-heading">Quality is Our Priority.</span>}
+              intro="It is the founding principle of our organization — the rigorous standard behind every national highway, bulk excavation, and architectural landmark we deliver."
             />
           </div>
-          <RevealImage
-            src="/images/handshake.webp"
-            alt="Handshake between a contractor and client over a safety helmet"
-            className="aspect-[16/9] bg-silver-200 lg:col-span-5"
-            imgClassName="object-[60%_center]"
-          />
+          <div className="lg:col-span-5 relative">
+            <RevealImage
+              src="/images/handshake.webp"
+              alt="Handshake between contractor and client"
+              className="aspect-[16/9] border border-white/15 bg-ink-900 shadow-2xl"
+              imgClassName="object-[60%_center]"
+            />
+          </div>
         </div>
 
-        <div className="mt-16 grid border-t border-l border-silver-200 sm:grid-cols-2 lg:grid-cols-3">
+        {/* Strengths Grid */}
+        <div className="mt-16 grid border-t border-l border-white/10 sm:grid-cols-2 lg:grid-cols-3">
           {strengths.map((s, i) => {
             const Icon = icons[s.icon]
             return (
               <Reveal
                 key={s.title}
                 delay={(i % 3) * 0.08}
-                className="group relative border-r border-b border-silver-200 bg-paper p-8 transition-colors duration-500 hover:bg-white sm:p-10"
+                className="group relative border-r border-b border-white/10 bg-ink-900/60 p-8 sm:p-10 transition-all duration-500 hover:bg-ink-900 hover:border-copper-500/50"
               >
-                <span className="absolute top-0 left-0 h-[2px] w-0 bg-copper-500 transition-all duration-700 ease-premium group-hover:w-full" aria-hidden="true" />
-                <Icon className="h-8 w-8 text-copper-600" strokeWidth={1.4} aria-hidden="true" />
-                <h3 className="font-display mt-6 text-xl font-semibold text-ink-900">{s.title}</h3>
-                <p className="mt-3 text-[0.95rem] leading-relaxed text-ink-500">{s.text}</p>
+                <span className="absolute top-0 left-0 h-[2px] w-0 bg-copper-400 transition-all duration-700 ease-premium group-hover:w-full" aria-hidden="true" />
+                <div className="flex items-center justify-between">
+                  <div className="flex h-12 w-12 items-center justify-center border border-white/10 bg-white/5 text-copper-400 transition-transform duration-300 group-hover:scale-110 group-hover:border-copper-500/60">
+                    <Icon className="h-6 w-6" strokeWidth={1.5} aria-hidden="true" />
+                  </div>
+                  {s.pillar && (
+                    <span className="text-[0.65rem] font-mono font-semibold tracking-wider text-copper-300 uppercase bg-copper-950/80 border border-copper-400/40 px-2.5 py-1">
+                      {s.pillar}
+                    </span>
+                  )}
+                </div>
+                <h3 className="font-display mt-6 text-xl sm:text-2xl font-bold text-white group-hover:text-copper-200 transition-colors">
+                  {s.title}
+                </h3>
+                <p className="mt-3 text-[0.92rem] leading-relaxed text-silver-300 font-light">
+                  {s.text}
+                </p>
               </Reveal>
             )
           })}
@@ -72,8 +92,8 @@ export function Objectives() {
         </div>
         <div className="lg:col-span-6 lg:pl-6">
           <RevealImage
-            src="/images/road-paving-aerial.webp"
-            alt="Aerial view of a highway being paved"
+            src="/images/tea-estate-highway-paving.jpg"
+            alt="Bituminous highway paving through tea plantations in Kerala"
             className="aspect-[4/3] bg-silver-200 lg:aspect-[6/5]"
           />
         </div>
@@ -114,9 +134,9 @@ export function Fleet() {
           </Reveal>
           <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:mt-auto lg:pt-10">
             {[
-              { src: '/images/bitumen-batch.webp', label: 'Bitumen batch mix plant' },
-              { src: '/images/drum-mix-3.webp', label: 'Bitumen drum mix plant' },
-              { src: '/images/drum-mix-2.webp', label: 'Drum mix plant on site' },
+              { src: '/images/apollo-sensor-paver-highway.jpg', label: 'Apollo AP 600 sensor paver' },
+              { src: '/images/volvo-roller-compaction.jpg', label: 'Volvo tandem vibratory roller' },
+              { src: '/images/subgrade-earthworks-bulldozer.jpg', label: 'Earthmoving & grading fleet' },
             ].map((p, i) => (
               <Reveal key={p.label} delay={0.1 + i * 0.08} className={i === 2 ? 'hidden sm:block' : ''}>
                 <figure>

@@ -14,13 +14,16 @@ const serviceCategory = {
 
 export function ServiceJumpNav() {
   return (
-    <nav aria-label="Services on this page" className="mt-12 border-t border-white/15 pt-6">
-      <ul className="flex flex-wrap gap-x-6 gap-y-3 text-sm">
+    <nav aria-label="Services on this page" className="border-t border-white/10 pt-3 sm:pt-4">
+      <ul className="grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-6 sm:gap-2.5">
         {services.map((s, i) => (
           <li key={s.id}>
-            <a href={`#${s.id}`} className="text-silver-300 transition-colors hover:text-white">
-              <span className="mr-2 text-xs text-copper-300">0{i + 1}</span>
-              {s.title}
+            <a
+              href={`#${s.id}`}
+              className="group flex flex-col justify-between rounded-sm border border-white/10 bg-ink-950/70 p-2 sm:p-2.5 backdrop-blur-md transition-all hover:border-copper-400/60 hover:bg-copper-950/50"
+            >
+              <span className="font-mono text-[0.62rem] font-semibold text-copper-300">0{i + 1}</span>
+              <span className="mt-0.5 text-[0.75rem] sm:text-xs font-semibold text-white leading-tight group-hover:text-copper-200 transition-colors">{s.title}</span>
             </a>
           </li>
         ))}

@@ -1,26 +1,23 @@
-import PageHeader from '../components/ui/PageHeader'
+import AboutHero from '../components/AboutHero'
 import About from '../components/About'
+import Team from '../components/Team'
 import { Objectives } from '../components/WhyChooseUs'
 import { ClientsMarquee } from '../components/Projects'
 import CompanyProfile from '../components/CompanyProfile'
-import ContactBand from '../components/ContactBand'
+import CTA from '../components/CTA'
 import usePageTitle from '../components/ui/usePageTitle'
 
 export default function AboutPage() {
   usePageTitle('About Us')
   return (
     <>
-      <PageHeader
-        eyebrow="About Us"
-        title="Trusted name in construction since 2005."
-        intro="From material supply in Vadanappally to an A-Class licensed infrastructure contractor working across Kerala."
-        image="/images/city-road.webp"
-      />
+      <AboutHero />
       <About />
+      <Team />
       <Objectives />
       <ClientsMarquee tone="light" />
       <CompanyProfile />
-      <ContactBand />
+      <CTA />
     </>
   )
 }

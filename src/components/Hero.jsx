@@ -1,138 +1,222 @@
 import { useEffect, useRef, useState } from 'react'
-import { AnimatePresence, motion, useReducedMotion, useScroll, useTransform } from 'framer-motion'
-import { ArrowDown } from 'lucide-react'
+import { motion, useReducedMotion, useScroll, useTransform, AnimatePresence } from 'framer-motion'
+import { ArrowDown, Play, Pause, ArrowUpRight } from 'lucide-react'
 import Button from './ui/Button'
-import { company, heroSlides, heroStats } from '../data/site'
+import { company, heroSlides } from '../data/site'
 
 const ease = [0.22, 1, 0.36, 1]
-const headline = ['Building Infrastructure.', 'Shaping the Future.']
-const SLIDE_MS = 7000
 
 export default function Hero() {
-  const ref = useRef(null)
+  const containerRef = useRef(null)
+  const videoRef = useRef(null)
   const reduce = useReducedMotion()
-  const { scrollYProgress } = useScroll({ target: ref, offset: ['start start', 'end start'] })
-  const mediaY = useTransform(scrollYProgress, [0, 1], ['0%', reduce ? '0%' : '18%'])
-  const contentOpacity = useTransform(scrollYProgress, [0, 0.7], [1, reduce ? 1 : 0])
-  const [slide, setSlide] = useState(0)
 
+  const [videoLoaded, setVideoLoaded] = useState(false)
+  const [videoPlaying, setVideoPlaying] = useState(true)
+  const [activeSlide, setActiveSlide] = useState(0)
+
+  // Scroll parallax
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ['start start', 'end start'],
+  })
+
+  const mediaY = useTransform(scrollYProgress, [0, 1], ['0%', reduce ? '0%' : '16%'])
+  const opacity = useTransform(scrollYProgress, [0, 0.7], [1, reduce ? 1 : 0])
+  const textY = useTransform(scrollYProgress, [0, 1], ['0%', reduce ? '0%' : '12%'])
+
+  // Ensure hero starts at top
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+
+  // Preload slides for fallback slideshow
   useEffect(() => {
     if (reduce) return
-    heroSlides.slice(1).forEach((s) => (new Image().src = s.src))
-    const t = setInterval(() => setSlide((i) => (i + 1) % heroSlides.length), SLIDE_MS)
-    return () => clearInterval(t)
+    heroSlides.forEach((s) => {
+      const img = new Image()
+      img.src = s.src
+    })
+    const timer = setInterval(() => {
+      setActiveSlide((prev) => (prev + 1) % heroSlides.length)
+    }, 7000)
+    return () => clearInterval(timer)
   }, [reduce])
 
+  const toggleVideo = () => {
+    if (!videoRef.current) return
+    if (videoPlaying) {
+      videoRef.current.pause()
+      setVideoPlaying(false)
+    } else {
+      videoRef.current.play()
+      setVideoPlaying(true)
+    }
+  }
+
+  const headlineWords = ['BUILDING', 'BEYOND', 'EXPECTATIONS.']
+
   return (
-    <section id="home" ref={ref} aria-label="Introduction" className="relative isolate flex min-h-[100svh] flex-col overflow-hidden bg-ink-950">
-      <motion.div className="absolute inset-0 -z-10" style={{ y: mediaY }}>
+    <section
+      id="home"
+      ref={containerRef}
+      aria-label="Introduction"
+      className="relative isolate flex min-h-[100svh] flex-col justify-between overflow-hidden bg-ink-950 text-white"
+    >
+      {/* Background Media with Parallax */}
+      <motion.div className="absolute inset-0 -z-20 overflow-hidden" style={{ y: mediaY }}>
+        {/* Cinematic Video Element */}
+        <video
+          ref={videoRef}
+          autoPlay
+          loop
+          muted
+          playsInline
+          onLoadedData={() => setVideoLoaded(true)}
+          className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ${
+            videoLoaded ? 'opacity-85' : 'opacity-0'
+          }`}
+        >
+          <source src="/videos/grand_hyatt_kochi_bolgatty_mast.webm" type="video/webm" />
+        </video>
+
+        {/* Fallback & Photography slideshow with sophisticated reveal */}
         <AnimatePresence initial={false}>
-          <motion.img
-            key={slide}
-            src={heroSlides[slide].src}
-            alt={slide === 0 ? heroSlides[0].alt : ''}
-            fetchPriority={slide === 0 ? 'high' : undefined}
-            className="absolute inset-0 h-full w-full object-cover"
-            initial={{ opacity: 0, scale: 1.14 }}
-            animate={{ opacity: 1, scale: 1.02 }}
-            exit={{ opacity: 0 }}
-            transition={{ opacity: { duration: 1.8, ease: 'easeInOut' }, scale: { duration: SLIDE_MS / 1000 + 2, ease: 'linear' } }}
-          />
+          {(!videoLoaded || !videoPlaying) && (
+            <motion.img
+              key={activeSlide}
+              src={heroSlides[activeSlide].src}
+              alt={heroSlides[activeSlide].alt}
+              fetchPriority="high"
+              className="img-premium absolute inset-0 h-full w-full object-cover"
+              initial={{ opacity: 0, scale: 1.06 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 1.4, ease: 'easeInOut' }}
+            />
+          )}
         </AnimatePresence>
+
+        {/* Cinematic Architectural Gradient Overlays */}
+        <div className="absolute inset-0 bg-gradient-to-r from-ink-950/95 via-ink-950/75 to-ink-950/40" />
+        <div className="absolute inset-0 bg-gradient-to-t from-ink-950 via-transparent to-ink-950/50" />
+        <div className="grain absolute inset-0 opacity-15 pointer-events-none" />
+
+        {/* Architectural framing lines */}
+        <div className="absolute inset-x-8 sm:inset-x-12 top-0 bottom-0 w-px bg-white/[0.04] pointer-events-none hidden md:block" />
+        <div className="absolute right-8 sm:right-12 top-0 bottom-0 w-px bg-white/[0.04] pointer-events-none hidden md:block" />
       </motion.div>
 
-      {/* overlays */}
-      <div className="absolute inset-0 -z-10 bg-gradient-to-r from-ink-950/90 via-ink-950/55 to-ink-950/10" />
-      <div className="absolute inset-0 -z-10 bg-gradient-to-t from-ink-950/95 via-transparent to-ink-950/30" />
-      <div className="grain absolute inset-0 -z-10" />
-
-      <motion.div style={{ opacity: contentOpacity }} className="container-x flex flex-1 flex-col justify-end pt-32 pb-10 sm:pb-14">
-        <div className="max-w-4xl">
-          <motion.p
-            className="eyebrow text-copper-200"
+      {/* Main Content Area */}
+      <motion.div
+        style={{ opacity, y: textY }}
+        className="w-full max-w-[1560px] mx-auto px-5 sm:px-8 lg:px-14 relative z-10 flex flex-1 flex-col justify-center pt-28 pb-12 sm:pt-36 sm:pb-16"
+      >
+        <div className="max-w-5xl">
+          {/* Eyebrow badge */}
+          <motion.div
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, ease, delay: 0.2 }}
+            transition={{ duration: 0.7, ease, delay: 0.1 }}
+            className="flex items-center gap-3"
           >
-            {company.tagline} · Since {company.founded}
-          </motion.p>
+            <span className="inline-flex items-center gap-2 border border-copper-400/40 bg-copper-950/60 px-3.5 py-1 text-[0.68rem] font-semibold tracking-[0.2em] text-copper-200 uppercase backdrop-blur-md">
+              <span className="h-1.5 w-1.5 rounded-full bg-copper-400 animate-pulse" />
+              A-Class Infrastructure Contractor · Est. {company.founded}
+            </span>
+          </motion.div>
 
-          <h1 className="font-display mt-6 text-[2.6rem] leading-[0.98] font-semibold tracking-[-0.03em] text-white sm:text-6xl md:text-7xl xl:text-[5.6rem]">
-            {headline.map((line, i) => (
-              <span key={line} className="block overflow-hidden pb-[0.08em]">
-                <motion.span
-                  className={`block ${i === 1 ? 'text-copper-gradient-light' : ''}`}
-                  initial={{ y: '105%' }}
-                  animate={{ y: '0%' }}
-                  transition={{ duration: 1.1, ease, delay: 0.35 + i * 0.14 }}
-                >
-                  {line}
-                </motion.span>
-              </span>
-            ))}
+          {/* Large Headline: "BUILDING BEYOND EXPECTATIONS." */}
+          <h1 className="font-display mt-6 text-[2.6rem] leading-[0.98] font-extrabold tracking-[-0.03em] text-white sm:text-6xl md:text-7xl lg:text-[5.4rem]">
+            <span className="block overflow-hidden py-0.5">
+              <motion.span
+                className="block text-white"
+                initial={{ y: '110%' }}
+                animate={{ y: '0%' }}
+                transition={{ duration: 0.9, ease, delay: 0.2 }}
+              >
+                BUILDING BEYOND
+              </motion.span>
+            </span>
+            <span className="block overflow-hidden py-0.5">
+              <motion.span
+                className="block text-copper-gradient-light"
+                initial={{ y: '110%' }}
+                animate={{ y: '0%' }}
+                transition={{ duration: 0.9, ease, delay: 0.35 }}
+              >
+                EXPECTATIONS.
+              </motion.span>
+            </span>
           </h1>
 
+          {/* Short Professional Company Introduction */}
           <motion.p
-            className="mt-7 max-w-xl text-base leading-relaxed text-silver-200 sm:text-lg"
-            initial={{ opacity: 0, y: 18 }}
+            className="mt-6 max-w-xl text-base sm:text-lg leading-relaxed text-silver-200 font-light"
+            initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, ease, delay: 0.75 }}
+            transition={{ duration: 0.8, ease, delay: 0.55 }}
           >
-            From six-laning earthworks on NH 66 to BM &amp; BC roads, rock cutting, paving and building works — SSIB Infra
-            Builders has delivered for Kerala&rsquo;s leading developers since 2005, backed by its own machinery fleet and
-            bitumen mix plants.
+            Delivering landmark highways, bulk earthworks, and architectural infrastructure with unyielding precision across Kerala since {company.founded}.
           </motion.p>
 
+          {/* Action Buttons: Explore Projects and Contact Us */}
           <motion.div
-            className="mt-9 flex flex-col gap-3 sm:flex-row"
+            className="mt-8 flex flex-wrap items-center gap-4"
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, ease, delay: 0.9 }}
+            transition={{ duration: 0.8, ease, delay: 0.7 }}
           >
-            <Button to="/services" variant="copper">
-              Explore Our Services
+            <Button
+              to="/projects"
+              variant="copper"
+              className="px-8 py-3.5 text-sm font-semibold tracking-wider uppercase shadow-[0_10px_30px_rgba(200,113,79,0.35)]"
+            >
+              Explore Projects
             </Button>
-            <Button to="/projects" variant="ghostLight">
-              View Our Projects
+            <Button
+              to="/contact"
+              variant="ghostLight"
+              className="px-8 py-3.5 text-sm font-semibold tracking-wider uppercase hover:bg-white hover:text-ink-950"
+            >
+              Contact Us
             </Button>
+
+            {videoLoaded && (
+              <button
+                type="button"
+                onClick={toggleVideo}
+                className="inline-flex items-center gap-1.5 px-3 py-2 text-xs tracking-wider text-silver-400 uppercase hover:text-white transition-colors ml-1"
+                aria-label={videoPlaying ? 'Pause video' : 'Play video'}
+              >
+                {videoPlaying ? <Pause className="h-3.5 w-3.5" /> : <Play className="h-3.5 w-3.5" />}
+                <span className="text-[0.7rem]">{videoPlaying ? 'Pause Video' : 'Play Video'}</span>
+              </button>
+            )}
           </motion.div>
         </div>
-
-        <motion.dl
-          className="mt-14 grid grid-cols-2 border-t border-white/15 lg:mt-20 lg:grid-cols-4"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1.2, delay: 1.15 }}
-        >
-          {heroStats.map((s, i) => (
-            <div
-              key={s.label}
-              className={`flex flex-col-reverse gap-1 py-5 pr-4 sm:py-6 ${i % 2 === 1 ? 'pl-4 sm:pl-6' : ''} ${
-                i > 0 ? 'lg:border-l lg:border-white/15 lg:pl-6' : ''
-              } ${i % 2 === 1 ? 'border-l border-white/15' : ''} ${i > 1 ? 'border-t border-white/15 lg:border-t-0' : ''}`}
-            >
-              <dt className="text-xs leading-snug text-silver-300 sm:text-[0.8rem]">{s.label}</dt>
-              <dd className="font-display text-2xl font-semibold text-white sm:text-3xl">{s.value}</dd>
-            </div>
-          ))}
-        </motion.dl>
       </motion.div>
 
-      <a
-        href="#services"
-        className="absolute right-5 bottom-8 hidden flex-col items-center gap-3 text-[0.65rem] font-semibold tracking-[0.3em] text-silver-300 uppercase transition-colors hover:text-white sm:right-8 md:flex lg:right-12"
-        aria-label="Scroll to services"
-      >
-        <span className="[writing-mode:vertical-rl]">Scroll</span>
-        <span className="relative block h-14 w-px overflow-hidden bg-white/20">
-          <motion.span
-            className="absolute inset-x-0 top-0 h-1/2 bg-copper-300"
-            animate={reduce ? undefined : { y: ['-100%', '200%'] }}
-            transition={{ duration: 2.2, repeat: Infinity, ease: 'easeInOut' }}
-          />
-        </span>
-        <ArrowDown className="h-3.5 w-3.5" aria-hidden="true" />
-      </a>
+      {/* Elegant Minimal Scroll Indicator */}
+      <div className="relative z-10 pb-8 flex justify-center">
+        <a
+          href="#about"
+          className="group flex flex-col items-center gap-2 text-[0.62rem] font-mono tracking-[0.25em] text-silver-400 uppercase transition-colors hover:text-copper-300"
+          aria-label="Scroll down to About section"
+        >
+          <span className="transition-transform duration-300 group-hover:translate-y-1">
+            Scroll
+          </span>
+          <span className="relative block h-10 w-px overflow-hidden bg-white/20">
+            <motion.span
+              className="absolute inset-x-0 top-0 h-1/2 bg-copper-400"
+              animate={reduce ? undefined : { y: ['-100%', '200%'] }}
+              transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+            />
+          </span>
+          <ArrowDown className="h-3 w-3 text-copper-400 animate-bounce" aria-hidden="true" />
+        </a>
+      </div>
     </section>
   )
 }
