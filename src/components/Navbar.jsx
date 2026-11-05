@@ -100,11 +100,11 @@ export default function Navbar() {
               {/* Desktop CTA Button */}
               <Link
                 to="/contact"
-                className="group hidden sm:inline-flex min-h-11 items-center gap-2 border border-white/20 bg-white px-5 text-[0.82rem] font-semibold tracking-wider text-ink-950 uppercase transition-all duration-300 ease-premium hover:bg-silver-200 hover:border-white hover:shadow-[0_0_20px_rgba(255,255,255,0.3)]"
+                className="group hidden sm:inline-flex min-h-11 items-center gap-2 border border-white/20 bg-white px-5 text-[0.82rem] font-bold tracking-wider !text-ink-950 uppercase transition-all duration-300 ease-premium hover:bg-silver-200 hover:border-white hover:shadow-[0_0_20px_rgba(255,255,255,0.3)]"
               >
-                <span>Get In Touch</span>
+                <span className="!text-ink-950">Get In Touch</span>
                 <ArrowUpRight
-                  className="h-4 w-4 transition-transform duration-300 ease-premium group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                  className="h-4 w-4 !text-ink-950 transition-transform duration-300 ease-premium group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
                   aria-hidden="true"
                 />
               </Link>
@@ -219,10 +219,10 @@ export default function Navbar() {
                   <Link
                     to="/contact"
                     onClick={() => setMenuOpen(false)}
-                    className="inline-flex min-h-12 w-full items-center justify-center gap-2 border border-white/20 bg-white px-5 text-xs font-semibold tracking-wider text-ink-950 uppercase transition-colors hover:bg-silver-200 shadow-md active:scale-95"
+                    className="inline-flex min-h-12 w-full items-center justify-center gap-2 border border-white/20 bg-white px-5 text-xs font-bold tracking-wider !text-ink-950 uppercase transition-colors hover:bg-silver-200 shadow-md active:scale-95"
                   >
-                    <span>Request Project Consultation</span>
-                    <ArrowUpRight className="h-4 w-4" />
+                    <span className="!text-ink-950">Request Project Consultation</span>
+                    <ArrowUpRight className="h-4 w-4 !text-ink-950" />
                   </Link>
 
                   <a

@@ -111,9 +111,9 @@ export default function AboutHero() {
               href={company.profilePdf}
               target="_blank"
               rel="noopener noreferrer"
-              variant="copper"
+              variant="white"
               icon={FileText}
-              className="px-5 py-2.5 text-xs sm:text-sm font-semibold tracking-wider uppercase bg-white text-ink-950 hover:bg-silver-200 border-white shadow-[0_10px_25px_rgba(0,0,0,0.4)]"
+              className="px-5 py-2.5 text-xs sm:text-sm font-bold tracking-wider uppercase"
             >
               Company Profile (PDF)
             </Button>

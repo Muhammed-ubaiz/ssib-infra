@@ -13,7 +13,7 @@ export default function ContactBand({ title = 'Planning a road, site or building
           <h2 className="font-display mt-5 text-3xl leading-tight font-semibold tracking-tight text-balance sm:text-5xl">{title}</h2>
         </Reveal>
         <Reveal delay={0.1} className="flex flex-col gap-3 sm:flex-row">
-          <Button to="/contact" variant="copper" className="bg-white text-ink-950 hover:bg-silver-200 border-white shadow-lg">
+          <Button to="/contact" variant="white">
             Contact Us
           </Button>
           <Button href={contact.phoneHref} variant="ghostLight" icon={Phone}>
