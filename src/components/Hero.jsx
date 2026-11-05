@@ -157,7 +157,7 @@ export default function Hero() {
             <Button
               to="/projects"
               variant="copper"
-              className="px-8 py-3.5 text-sm font-semibold tracking-wider uppercase shadow-[0_10px_30px_rgba(200,113,79,0.35)]"
+              className="px-8 py-3.5 text-sm font-semibold tracking-wider uppercase bg-white text-ink-950 hover:bg-silver-200 border-white shadow-[0_10px_30px_rgba(0,0,0,0.5)]"
             >
               Explore Projects
             </Button>

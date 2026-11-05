@@ -31,8 +31,8 @@ export default function Footer() {
               {company.intro}
             </p>
 
-            <div className="mt-6 inline-flex items-center gap-2 border border-copper-500/40 bg-copper-900/30 px-3.5 py-1.5 text-xs text-copper-200">
-              <ShieldCheck className="h-4 w-4 text-copper-400 shrink-0" />
+            <div className="mt-6 inline-flex items-center gap-2 border border-white/20 bg-white/5 px-3.5 py-1.5 text-xs text-silver-200">
+              <ShieldCheck className="h-4 w-4 text-silver-300 shrink-0" />
               <span>A-Class Government Licenced Contractor</span>
             </div>
 
@@ -44,7 +44,7 @@ export default function Footer() {
                   href={s.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-copper-300 transition-colors"
+                  className="hover:text-white transition-colors"
                 >
                   {s.name}
                 </a>
@@ -54,7 +54,7 @@ export default function Footer() {
 
           {/* Quick Links Column */}
           <nav aria-label="Footer Navigation" className="lg:col-span-2">
-            <h3 className="font-mono text-xs font-bold tracking-[0.2em] text-copper-400 uppercase">
+            <h3 className="font-mono text-xs font-bold tracking-[0.2em] text-silver-300 uppercase">
               Navigation
             </h3>
             <ul className="mt-6 space-y-3 text-sm">
@@ -73,7 +73,7 @@ export default function Footer() {
 
           {/* Disciplines / Services Column */}
           <div className="lg:col-span-3">
-            <h3 className="font-mono text-xs font-bold tracking-[0.2em] text-copper-400 uppercase">
+            <h3 className="font-mono text-xs font-bold tracking-[0.2em] text-silver-300 uppercase">
               Disciplines
             </h3>
             <ul className="mt-6 space-y-3 text-sm">
@@ -92,12 +92,12 @@ export default function Footer() {
 
           {/* Contact Column */}
           <div className="lg:col-span-3">
-            <h3 className="font-mono text-xs font-bold tracking-[0.2em] text-copper-400 uppercase">
+            <h3 className="font-mono text-xs font-bold tracking-[0.2em] text-silver-300 uppercase">
               Corporate Office
             </h3>
             <address className="mt-6 space-y-3 text-sm leading-relaxed text-silver-300 not-italic">
               <p className="flex items-start gap-2.5">
-                <MapPin className="h-4 w-4 text-copper-400 shrink-0 mt-1" />
+                <MapPin className="h-4 w-4 text-silver-400 shrink-0 mt-1" />
                 <span>
                   {contact.addressLines.map((line) => (
                     <span key={line} className="block">
@@ -107,14 +107,14 @@ export default function Footer() {
                 </span>
               </p>
               <p className="flex items-center gap-2.5 pt-2">
-                <Phone className="h-4 w-4 text-copper-400 shrink-0" />
-                <a href={contact.phoneHref} className="hover:text-copper-300 transition-colors">
+                <Phone className="h-4 w-4 text-silver-400 shrink-0" />
+                <a href={contact.phoneHref} className="hover:text-white transition-colors">
                   {contact.phone}
                 </a>
               </p>
               <p className="flex items-center gap-2.5">
-                <Mail className="h-4 w-4 text-copper-400 shrink-0" />
-                <a href={`mailto:${contact.email}`} className="break-all hover:text-copper-300 transition-colors">
+                <Mail className="h-4 w-4 text-silver-400 shrink-0" />
+                <a href={`mailto:${contact.email}`} className="break-all hover:text-white transition-colors">
                   {contact.email}
                 </a>
               </p>
@@ -135,7 +135,7 @@ export default function Footer() {
             <button
               type="button"
               onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-              className="inline-flex items-center gap-2 font-semibold text-copper-300 hover:text-white transition-colors"
+              className="inline-flex items-center gap-2 font-semibold text-silver-300 hover:text-white transition-colors"
             >
               <span>Back to Top</span>
               <ArrowUp className="h-3.5 w-3.5" aria-hidden="true" />

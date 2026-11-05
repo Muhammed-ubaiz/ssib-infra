@@ -17,15 +17,12 @@ const layout = [
   'md:col-span-1 lg:col-span-4 aspect-[4/3]',
 ]
 
-const parseCr = (v) => (v ? parseFloat(v.replace(/[^\d.]/g, '')) : 0)
-const totalValue = allProjects.reduce((sum, p) => sum + parseCr(p.value), 0)
-
 function ProjectCard({ project, index, total = featuredProjects.length }) {
   const big = index === 0
   const cardLayout = layout[index] || 'md:col-span-1 lg:col-span-4 aspect-[4/3]'
   return (
     <motion.article
-      className={`group relative isolate overflow-hidden rounded-md border border-white/10 bg-ink-950 transition-all duration-700 hover:border-copper-400/50 hover:shadow-2xl hover:shadow-black/70 ${cardLayout}`}
+      className={`group relative isolate overflow-hidden rounded-md border border-white/10 bg-ink-950 transition-all duration-700 hover:border-white/30 hover:shadow-2xl hover:shadow-black/70 ${cardLayout}`}
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '0px 0px -8% 0px' }}
@@ -45,36 +42,30 @@ function ProjectCard({ project, index, total = featuredProjects.length }) {
       <div className="absolute inset-0 -z-10 bg-gradient-to-b from-ink-950/60 via-transparent to-transparent opacity-80" />
 
       {/* Engineering Blueprint Corner Accents */}
-      <span className="pointer-events-none absolute top-2 left-2 text-[10px] font-mono text-white/20 transition-colors duration-500 group-hover:text-copper-400/60">+</span>
-      <span className="pointer-events-none absolute top-2 right-2 text-[10px] font-mono text-white/20 transition-colors duration-500 group-hover:text-copper-400/60">+</span>
-      <span className="pointer-events-none absolute bottom-2 left-2 text-[10px] font-mono text-white/20 transition-colors duration-500 group-hover:text-copper-400/60">+</span>
-      <span className="pointer-events-none absolute bottom-2 right-2 text-[10px] font-mono text-white/20 transition-colors duration-500 group-hover:text-copper-400/60">+</span>
+      <span className="pointer-events-none absolute top-2 left-2 text-[10px] font-mono text-white/20 transition-colors duration-500 group-hover:text-white/60">+</span>
+      <span className="pointer-events-none absolute top-2 right-2 text-[10px] font-mono text-white/20 transition-colors duration-500 group-hover:text-white/60">+</span>
+      <span className="pointer-events-none absolute bottom-2 left-2 text-[10px] font-mono text-white/20 transition-colors duration-500 group-hover:text-white/60">+</span>
+      <span className="pointer-events-none absolute bottom-2 right-2 text-[10px] font-mono text-white/20 transition-colors duration-500 group-hover:text-white/60">+</span>
 
       <div className="flex h-full flex-col justify-between p-5 sm:p-7">
         {/* Top Badges Bar */}
         <div className="flex flex-wrap items-center justify-between gap-2">
           <div className="flex items-center gap-2">
             <span className="inline-flex items-center gap-1.5 rounded-sm border border-white/20 bg-ink-950/80 px-2.5 py-1 text-[0.65rem] font-bold tracking-[0.14em] text-white uppercase backdrop-blur-md">
-              <span className="h-1.5 w-1.5 rounded-full bg-copper-400" />
+              <span className="h-1.5 w-1.5 rounded-full bg-silver-300" />
               {project.category}
             </span>
             {project.status && (
               <span className={`inline-flex items-center gap-1 rounded-sm px-2.5 py-1 text-[0.65rem] font-bold tracking-[0.14em] uppercase backdrop-blur-md ${
                 project.status === 'Current'
-                  ? 'border border-copper-400/40 bg-copper-600/90 text-white'
+                  ? 'border border-white/25 bg-white/15 text-white'
                   : 'border border-white/15 bg-white/10 text-silver-300'
               }`}>
-                {project.status === 'Current' && <span className="h-1.5 w-1.5 rounded-full bg-white animate-pulse" />}
+                {project.status === 'Current' && <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />}
                 {project.status}
               </span>
             )}
           </div>
-
-          {project.value && (
-            <span className="font-display rounded-sm border border-copper-400/30 bg-ink-950/85 px-3 py-1 text-xs font-semibold tracking-wider text-copper-300 backdrop-blur-md sm:text-sm">
-              {project.value}
-            </span>
-          )}
         </div>
 
         {/* Bottom Project Metadata */}
@@ -116,15 +107,15 @@ export function ProjectStats({ className = '' }) {
         <p className="mt-1 text-xs leading-snug text-silver-400">
           Project engagements
           <br />
-          in the company profile
+          in company portfolio
         </p>
       </div>
       <div>
-        <p className="font-display text-4xl font-semibold text-copper-300">₹{Math.floor(totalValue / 10) * 10}+ Cr</p>
+        <p className="font-display text-4xl font-semibold text-silver-200">20+ Years</p>
         <p className="mt-1 text-xs leading-snug text-silver-400">
-          Combined value
+          Of infrastructure
           <br />
-          of listed works
+          contractor excellence
         </p>
       </div>
     </div>
@@ -233,10 +224,9 @@ export function ProjectRegister() {
 
         <div className="mt-8 border-t border-silver-200">
           <div className="hidden grid-cols-12 gap-4 border-b border-silver-200 py-3 text-[0.68rem] font-semibold tracking-[0.18em] text-silver-500 uppercase md:grid">
-            <span className="col-span-5">Project Scope</span>
+            <span className="col-span-6">Project Scope</span>
             <span className="col-span-3">Client / Authority</span>
-            <span className="col-span-2">Category</span>
-            <span className="col-span-2 text-right">Listed Value</span>
+            <span className="col-span-3 text-right">Category</span>
           </div>
           <ul>
             <AnimatePresence initial={false}>
@@ -250,22 +240,19 @@ export function ProjectRegister() {
                   transition={{ duration: 0.25 }}
                   className="grid grid-cols-12 gap-x-4 gap-y-1.5 border-b border-silver-200 py-4.5 text-sm transition-colors hover:bg-paper/80"
                 >
-                  <span className="col-span-9 font-medium text-ink-900 md:col-span-5">
+                  <span className="col-span-12 font-medium text-ink-900 md:col-span-6">
                     {p.name}
                     {p.status === 'Current' && (
-                      <span className="ml-2 inline-flex items-center gap-1 bg-copper-100 px-2 py-0.5 align-middle text-[0.62rem] font-bold tracking-widest text-copper-800 uppercase rounded-sm">
-                        <span className="h-1.5 w-1.5 rounded-full bg-copper-600 animate-pulse" />
+                      <span className="ml-2 inline-flex items-center gap-1 bg-ink-900 text-white px-2 py-0.5 align-middle text-[0.62rem] font-bold tracking-widest uppercase rounded-sm">
+                        <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
                         Current
                       </span>
                     )}
                   </span>
-                  <span className="font-display col-span-3 text-right font-semibold text-copper-700 md:order-last md:col-span-2">
-                    {p.value ?? '—'}
-                  </span>
-                  <span className="col-span-12 text-ink-600 md:col-span-3">
+                  <span className="col-span-8 text-ink-600 md:col-span-3">
                     {p.client ? <span className="font-medium">{p.client}</span> : <span className="text-silver-400">—</span>}
                   </span>
-                  <span className="col-span-12 text-xs text-silver-500 md:col-span-2 md:text-sm">
+                  <span className="col-span-4 text-right text-xs text-silver-500 md:col-span-3 md:text-sm">
                     <span className="inline-block rounded-xs bg-silver-100 px-2 py-0.5 text-[0.7rem] font-medium text-silver-600 uppercase">
                       {p.category}
                     </span>
@@ -352,7 +339,7 @@ export function ClientsMarquee({ tone = 'dark' }) {
 export function ClientShowcase() {
   const rows = clients.map((c) => {
     const works = allProjects.filter((p) => p.client?.includes(c.match) || p.name?.includes(c.match))
-    return { ...c, works, value: works.reduce((s, w) => s + parseCr(w.value), 0) }
+    return { ...c, works }
   })
 
   return (
@@ -382,18 +369,45 @@ export function ClientShowcase() {
                     <h3 className="font-display text-xl font-semibold text-ink-900">{c.name}</h3>
                     {c.full && <p className="mt-1 text-xs text-silver-600">{c.full}</p>}
                   </div>
-                  {c.value > 0 && <p className="font-display shrink-0 text-lg font-semibold text-copper-700">₹{+c.value.toFixed(1)} Cr</p>}
+                  {c.works.length > 0 && (
+                    <span className="font-mono shrink-0 rounded-xs bg-silver-100 px-2.5 py-1 text-[0.68rem] font-semibold text-silver-600 uppercase">
+                      {c.works.length} {c.works.length === 1 ? 'Work' : 'Works'}
+                    </span>
+                  )}
                 </div>
+
+                {/* Additional Text / Scope Overview */}
+                {c.overview && (
+                  <p className="mt-3.5 text-xs leading-relaxed text-ink-600 font-light">
+                    {c.overview}
+                  </p>
+                )}
+
+                {/* Location Tag */}
+                {c.location && (
+                  <div className="mt-3 flex items-center gap-1.5 text-[0.7rem] font-medium text-silver-500">
+                    <MapPin className="h-3 w-3 text-silver-400 shrink-0" />
+                    <span>{c.location}</span>
+                  </div>
+                )}
               </div>
+
               {c.works.length > 0 && (
-                <ul className="mt-5 space-y-2 border-t border-silver-200 pt-4">
-                  {c.works.map((w) => (
-                    <li key={w.name + w.category} className="flex items-start justify-between gap-3 text-sm">
-                      <span className="text-ink-600">{w.name}</span>
-                      <span className="shrink-0 text-xs font-mono text-silver-500">{w.category}</span>
-                    </li>
-                  ))}
-                </ul>
+                <div className="mt-6 border-t border-silver-200 pt-4">
+                  <p className="text-[0.65rem] font-mono font-bold tracking-wider text-silver-400 uppercase mb-2.5">
+                    Works Delivered
+                  </p>
+                  <ul className="space-y-2">
+                    {c.works.map((w) => (
+                      <li key={w.name + w.category} className="flex items-start justify-between gap-3 text-xs leading-snug">
+                        <span className="text-ink-800 font-medium">{w.name}</span>
+                        <span className="shrink-0 text-[0.65rem] font-mono text-silver-500 uppercase bg-silver-100 px-1.5 py-0.5 rounded-xs">
+                          {w.category}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               )}
             </Reveal>
           ))}

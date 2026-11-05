@@ -19,19 +19,19 @@ export default function ProjectsPage() {
           <nav aria-label="Quick jump" className="flex flex-wrap items-center gap-2">
             <a
               href="#featured-projects"
-              className="rounded-sm border border-white/20 bg-white/5 px-3.5 py-1.5 text-xs font-semibold tracking-wider text-white uppercase backdrop-blur-md transition-colors hover:border-copper-400 hover:text-copper-200"
+              className="rounded-sm border border-white/20 bg-white/5 px-3.5 py-1.5 text-xs font-semibold tracking-wider text-white uppercase backdrop-blur-md transition-colors hover:border-white/50 hover:bg-white/10"
             >
               Featured Sites
             </a>
             <a
               href="#project-list"
-              className="rounded-sm border border-white/20 bg-white/5 px-3.5 py-1.5 text-xs font-semibold tracking-wider text-white uppercase backdrop-blur-md transition-colors hover:border-copper-400 hover:text-copper-200"
+              className="rounded-sm border border-white/20 bg-white/5 px-3.5 py-1.5 text-xs font-semibold tracking-wider text-white uppercase backdrop-blur-md transition-colors hover:border-white/50 hover:bg-white/10"
             >
               Project Ledger
             </a>
             <a
               href="#gallery"
-              className="rounded-sm border border-copper-400/40 bg-copper-500/20 px-3.5 py-1.5 text-xs font-semibold tracking-wider text-copper-200 uppercase backdrop-blur-md transition-colors hover:bg-copper-500 hover:text-white"
+              className="rounded-sm border border-white/20 bg-white/10 px-3.5 py-1.5 text-xs font-semibold tracking-wider text-white uppercase backdrop-blur-md transition-colors hover:bg-white hover:text-ink-950"
             >
               Photo Archive
             </a>

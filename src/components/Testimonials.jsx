@@ -211,7 +211,7 @@ export default function Testimonials() {
                     {isActive && (
                       <motion.div
                         layoutId="active-endorsement-tab"
-                        className="absolute inset-x-0 top-0 h-0.5 bg-copper-400 shadow-[0_0_8px_rgba(200,113,79,0.9)]"
+                        className="absolute inset-x-0 top-0 h-0.5 bg-white shadow-[0_0_8px_rgba(255,255,255,0.8)]"
                         transition={{ type: 'spring', stiffness: 350, damping: 30 }}
                       />
                     )}

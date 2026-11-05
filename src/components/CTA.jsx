@@ -18,14 +18,14 @@ export default function CTA() {
         <div className="absolute inset-0 bg-gradient-to-r from-ink-950 via-ink-950/85 to-ink-950/70" />
         <div className="absolute inset-0 bg-gradient-to-t from-ink-950 via-transparent to-ink-950/80" />
         <div className="grain absolute inset-0 opacity-20 pointer-events-none" />
-        {/* Copper glow accent */}
-        <div className="absolute -bottom-32 -right-32 h-[500px] w-[500px] rounded-full bg-copper-600/20 blur-[140px] pointer-events-none" />
+        {/* Architectural silver glow accent */}
+        <div className="absolute -bottom-32 -right-32 h-[500px] w-[500px] rounded-full bg-white/10 blur-[140px] pointer-events-none" />
       </div>
 
       <div className="container-x relative z-10">
         <div className="max-w-3xl">
           <Reveal>
-            <span className="eyebrow text-copper-300">
+            <span className="eyebrow text-silver-300">
               Start Your Collaboration
             </span>
           </Reveal>
@@ -45,8 +45,8 @@ export default function CTA() {
           <Reveal delay={0.24} className="mt-10 flex flex-col sm:flex-row sm:items-center gap-4">
             <Button
               to="/contact"
-              variant="copper"
-              className="px-8 py-4 text-base font-semibold tracking-wider uppercase shadow-[0_15px_35px_rgba(200,113,79,0.4)]"
+              variant="white"
+              className="px-8 py-4 text-base font-bold tracking-wider uppercase !text-ink-950"
             >
               Start Your Project
             </Button>
@@ -54,7 +54,7 @@ export default function CTA() {
               href={contact.phoneHref}
               variant="ghostLight"
               icon={Phone}
-              className="px-8 py-4 text-base font-semibold tracking-wider uppercase"
+              className="px-8 py-4 text-base font-semibold tracking-wider uppercase text-white"
             >
               {contact.phone}
             </Button>

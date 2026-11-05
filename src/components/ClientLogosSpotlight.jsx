@@ -79,14 +79,12 @@ export default function ClientLogosSpotlight({ tone = 'dark' }) {
               {/* Footer Meta */}
               <div className={`mt-6 flex items-center justify-between border-t pt-4 text-xs ${dark ? 'border-white/10 text-silver-400' : 'border-silver-200 text-silver-600'}`}>
                 <div className="flex items-center gap-1.5 font-medium">
-                  <MapPin className="h-3.5 w-3.5 text-copper-500 shrink-0" />
-                  <span className="truncate max-w-[170px]">{client.location}</span>
+                  <MapPin className="h-3.5 w-3.5 text-silver-400 shrink-0" />
+                  <span className="truncate">{client.location}</span>
                 </div>
-                {client.value && (
-                  <span className={`font-display font-bold text-sm ${dark ? 'text-copper-400' : 'text-copper-700'}`}>
-                    {client.value}
-                  </span>
-                )}
+                <span className="font-mono text-[10px] font-semibold uppercase tracking-wider text-silver-400">
+                  Delivered
+                </span>
               </div>
             </Reveal>
           ))}

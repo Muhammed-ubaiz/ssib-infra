@@ -15,7 +15,7 @@ export default function CompanyProfile() {
 
   return (
     <section id="profile" className="silver-sheen relative overflow-hidden py-24 sm:py-32">
-      <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-[radial-gradient(60%_60%_at_80%_40%,rgba(221,140,109,0.16),transparent_70%)]" />
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-[radial-gradient(60%_60%_at_80%_40%,rgba(0,0,0,0.06),transparent_70%)]" />
       <div className="container-x relative grid items-center gap-16 lg:grid-cols-12">
         <div className="lg:col-span-5">
           <Reveal>

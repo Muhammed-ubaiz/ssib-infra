@@ -62,7 +62,7 @@ export default function Process() {
                   key={item.step}
                   className={`group relative flex flex-col justify-between border bg-paper p-5 sm:p-6 transition-all duration-500 ease-premium cursor-pointer ${
                     isSelected
-                      ? 'border-copper-500 shadow-[0_15px_30px_-10px_rgba(200,113,79,0.2)] bg-white -translate-y-1'
+                      ? 'border-ink-950 shadow-[0_15px_30px_-10px_rgba(0,0,0,0.12)] bg-white -translate-y-1'
                       : 'border-silver-200 hover:border-silver-400 hover:bg-white'
                   }`}
                   onClick={() => setActiveStep(index)}
@@ -78,8 +78,8 @@ export default function Process() {
                       <div
                         className={`relative z-10 flex h-11 w-11 items-center justify-center transition-all duration-300 ${
                           isSelected
-                            ? 'bg-copper-600 text-white shadow-[0_0_15px_rgba(200,113,79,0.5)]'
-                            : 'bg-white border border-silver-300 text-ink-700 group-hover:border-copper-400 group-hover:text-copper-600'
+                            ? 'bg-ink-950 text-white shadow-[0_0_15px_rgba(0,0,0,0.3)]'
+                            : 'bg-white border border-silver-300 text-ink-700 group-hover:border-ink-900 group-hover:text-ink-950'
                         }`}
                       >
                         <Icon className="h-5 w-5" strokeWidth={1.6} />
