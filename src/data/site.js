@@ -38,6 +38,39 @@ export const navLinks = [
   { to: '/contact', label: 'Contact' },
 ]
 
+export const aiHeroScenes = [
+  {
+    id: 'coastal',
+    title: 'Coastal Marine Corridor & Elevated Viaduct',
+    category: 'Marine Expressway & Heavy Civil',
+    location: 'Kerala Coastal Highway Corridor',
+    src: '/images/hero/ai-hero-expressway-coastal.jpg',
+    tag: 'Next-Gen Infrastructure',
+    spec: 'Multi-lane marine viaduct with seismic resilient pier foundations',
+    shortLabel: 'Coastal Viaduct',
+  },
+  {
+    id: 'cable-bridge',
+    title: 'Cable-Stayed Bridge & Multi-Tier Flyover',
+    category: 'Structural Bridge Engineering',
+    location: 'Urban Arterial Expressway Network',
+    src: '/images/hero/ai-hero-cable-bridge.jpg',
+    tag: 'Iconic Landmarks',
+    spec: 'Aerodynamic steel cable-stayed spans with illuminated transit arteries',
+    shortLabel: 'Cable Bridge',
+  },
+  {
+    id: 'mountain-highway',
+    title: 'Western Ghats Scenic 6-Lane Expressway',
+    category: 'Terrain Road Tarring & Paving',
+    location: 'Interstate Transport Corridor',
+    src: '/images/hero/ai-hero-modern-highway-valley.jpg',
+    tag: 'Precision Asphalt Paving',
+    spec: 'German-sensor paver technology with micro-graded bitumen macadam',
+    shortLabel: 'Mountain Highway',
+  },
+]
+
 export const heroSlides = [
   {
     src: img('tea-estate-highway-paving.jpg'),
