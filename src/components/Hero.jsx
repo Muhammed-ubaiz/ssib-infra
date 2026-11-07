@@ -65,7 +65,7 @@ export default function Hero() {
     >
       {/* Background Media with Parallax */}
       <motion.div className="absolute inset-0 -z-20 overflow-hidden" style={{ y: mediaY }}>
-        {/* Cinematic Video Element */}
+        {/* Cinematic Video Element — optimized for vivid clarity */}
         <video
           ref={videoRef}
           autoPlay
@@ -74,8 +74,9 @@ export default function Hero() {
           playsInline
           onLoadedData={() => setVideoLoaded(true)}
           className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ${
-            videoLoaded ? 'opacity-85' : 'opacity-0'
+            videoLoaded ? 'opacity-100' : 'opacity-0'
           }`}
+          style={{ filter: 'contrast(1.05) saturate(1.1) brightness(1.02)' }}
         >
           <source src="/videos/grand_hyatt_kochi_bolgatty_mast.webm" type="video/webm" />
         </video>
@@ -97,10 +98,9 @@ export default function Hero() {
           )}
         </AnimatePresence>
 
-        {/* Cinematic Architectural Gradient Overlays */}
-        <div className="absolute inset-0 bg-gradient-to-r from-ink-950/95 via-ink-950/75 to-ink-950/40" />
-        <div className="absolute inset-0 bg-gradient-to-t from-ink-950 via-transparent to-ink-950/50" />
-        <div className="grain absolute inset-0 opacity-15 pointer-events-none" />
+        {/* Ultra-clear gradient overlays: focused vignette behind text only, clear view of the video */}
+        <div className="absolute inset-0 bg-gradient-to-r from-ink-950/85 via-ink-950/40 to-transparent pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-t from-ink-950/80 via-transparent to-ink-950/25 pointer-events-none" />
 
         {/* Architectural framing lines */}
         <div className="absolute inset-x-8 sm:inset-x-12 top-0 bottom-0 w-px bg-white/[0.04] pointer-events-none hidden md:block" />
@@ -114,7 +114,7 @@ export default function Hero() {
       >
         <div className="max-w-5xl">
           {/* Large Headline: "BUILDING BEYOND EXPECTATIONS." */}
-          <h1 className="font-display mt-2 sm:mt-4 text-[2.6rem] leading-[0.98] font-extrabold tracking-[-0.03em] text-white sm:text-6xl md:text-7xl lg:text-[5.4rem]">
+          <h1 className="font-display mt-2 sm:mt-4 text-[2.6rem] leading-[0.98] font-extrabold tracking-[-0.03em] text-white sm:text-6xl md:text-7xl lg:text-[5.4rem] drop-shadow-[0_4px_24px_rgba(0,0,0,0.85)]">
             <span className="block overflow-hidden py-0.5">
               <motion.span
                 className="block text-white"
@@ -139,7 +139,7 @@ export default function Hero() {
 
           {/* Short Professional Company Introduction */}
           <motion.p
-            className="mt-6 max-w-xl text-base sm:text-lg leading-relaxed text-silver-200 font-light"
+            className="mt-6 max-w-xl text-base sm:text-lg leading-relaxed text-silver-100 font-light drop-shadow-[0_2px_12px_rgba(0,0,0,0.85)]"
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease, delay: 0.55 }}
