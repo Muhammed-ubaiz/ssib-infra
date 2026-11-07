@@ -8,7 +8,10 @@ import CTA from '../components/CTA'
 import usePageTitle from '../components/ui/usePageTitle'
 
 export default function AboutPage() {
-  usePageTitle('About Us')
+  usePageTitle(
+    'About Us — A-Class Contractors Ernakulam',
+    'Founded in 2005 by Mr. Shihas P. I, SSIB Infra Builders is an A-Class Government Licensed infrastructure contractor headquartered in Ernakulam, executing ₹100 Cr highway earthworks and civil engineering across Kerala.'
+  )
   return (
     <>
       <AboutHero />

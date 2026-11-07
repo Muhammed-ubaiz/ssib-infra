@@ -5,7 +5,10 @@ import CTA from '../components/CTA'
 import usePageTitle from '../components/ui/usePageTitle'
 
 export default function ClientsPage() {
-  usePageTitle('Clients & Partners')
+  usePageTitle(
+    'Clients & Partners — Grand Hyatt, Tata, Marriott, Galfar | SSIB Infra',
+    'SSIB Infra Builders is the trusted civil and road infrastructure partner for leading developers across Kerala including Grand Hyatt, Crowne Plaza, Marriott, Tata, LuLu, and Galfar.'
+  )
 
   return (
     <>

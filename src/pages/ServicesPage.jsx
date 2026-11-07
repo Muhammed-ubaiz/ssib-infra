@@ -6,7 +6,10 @@ import CTA from '../components/CTA'
 import usePageTitle from '../components/ui/usePageTitle'
 
 export default function ServicesPage() {
-  usePageTitle('Our Services')
+  usePageTitle(
+    'Services — Road Tarring (BM & BC), Earthworks & Bitumen Plants Kerala',
+    'Comprehensive infrastructure engineering services across Kerala: Bituminous Macadam (BM) & Bituminous Concrete (BC) road tarring, bulk earth excavation, controlled rock cutting, paving tiles, building works, and captive hot-mix bitumen plants.'
+  )
   return (
     <>
       <PageHeader

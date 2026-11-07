@@ -130,8 +130,12 @@ export default function Footer() {
       <div className="border-t border-white/10 bg-black/40 py-6">
         <div className="container-x flex flex-col items-center justify-between gap-4 text-xs text-silver-400 sm:flex-row">
           <p>© {year} {company.name}. All rights reserved.</p>
-          <div className="flex items-center gap-6">
-            <span>A-Class Contractor · Kerala, India</span>
+          <div className="flex items-center gap-4 sm:gap-6">
+            <Link to="/privacy" className="hover:text-white transition-colors">
+              Privacy Policy
+            </Link>
+            <span className="hidden sm:inline">·</span>
+            <span className="hidden sm:inline">A-Class Contractor · Kerala, India</span>
             <button
               type="button"
               onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}

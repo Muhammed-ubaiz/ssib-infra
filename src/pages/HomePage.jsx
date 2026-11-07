@@ -11,7 +11,10 @@ import Contact from '../components/Contact'
 import usePageTitle from '../components/ui/usePageTitle'
 
 export default function HomePage() {
-  usePageTitle(null)
+  usePageTitle(
+    null,
+    'SSIB Infra Builders Pvt Ltd, Ernakulam, Kerala — A-Class Government Licensed Contractor specializing in highway road tarring (BM & BC), bulk earth excavation, rock cutting, paving tiles, building works, and hot-mix bitumen plants since 2005.'
+  )
   return (
     <>
       {/* 2. CINEMATIC HERO */}

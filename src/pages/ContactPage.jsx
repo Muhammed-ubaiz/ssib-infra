@@ -66,7 +66,10 @@ const emptyForm = {
 }
 
 export default function ContactPage() {
-  usePageTitle('Contact Us | SSIB Infra Builders Ernakulam')
+  usePageTitle(
+    'Contact Us — SSIB Infra Builders Ernakulam, Kerala',
+    'Get in touch with SSIB Infra Builders Private Limited, Mareena Centre, Container Road, Kothad, Ernakulam. Request project quotations for road tarring, bulk earthworks, and infrastructure engineering across Kerala.'
+  )
 
   const [form, setForm] = useState(emptyForm)
   const [errors, setErrors] = useState({})

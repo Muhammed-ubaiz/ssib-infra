@@ -9,7 +9,7 @@ export default function PageHeader({ eyebrow, title, intro, image, children, cla
     <section className={`relative isolate flex min-h-svh lg:h-screen lg:max-h-[880px] flex-col justify-between overflow-hidden bg-ink-950 pt-20 pb-5 text-white sm:pt-28 sm:pb-10 ${className}`}>
       <motion.img
         src={image}
-        alt=""
+        alt={`${eyebrow || 'SSIB Infrastructure'} engineering site in Kerala`}
         className="img-premium absolute inset-0 -z-10 h-full w-full object-cover"
         initial={{ scale: 1.08, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}

@@ -1,0 +1,5 @@
+# robots.txt for SSIB Infra Builders Pvt Ltd
+User-agent: *
+Allow: /
+
+Sitemap: https://ssib-cb668.web.app/sitemap.xml

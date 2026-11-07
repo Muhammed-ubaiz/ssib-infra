@@ -5,7 +5,10 @@ import CTA from '../components/CTA'
 import usePageTitle from '../components/ui/usePageTitle'
 
 export default function ProjectsPage() {
-  usePageTitle('Projects')
+  usePageTitle(
+    'Projects Portfolio — Highway, Earthworks & Paving Sites Kerala',
+    'Explore completed and ongoing landmark civil infrastructure projects across Kerala: NH 66 highway earthworks, Grand Hyatt Kochi, Crowne Plaza, Tata Trust, Marriott, and SmartCity Kochi by SSIB Infra Builders.'
+  )
   return (
     <>
       <PageHeader

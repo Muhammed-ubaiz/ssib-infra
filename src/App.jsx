@@ -4,6 +4,7 @@ import { Route, Routes } from 'react-router'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import ScrollManager from './components/ScrollManager'
+import FloatingContact from './components/ui/FloatingContact'
 import HomePage from './pages/HomePage'
 
 // Lazy load secondary routes for optimal initial page performance
@@ -12,6 +13,7 @@ const ProjectsPage = lazy(() => import('./pages/ProjectsPage'))
 const ServicesPage = lazy(() => import('./pages/ServicesPage'))
 const ClientsPage = lazy(() => import('./pages/ClientsPage'))
 const ContactPage = lazy(() => import('./pages/ContactPage'))
+const PrivacyPage = lazy(() => import('./pages/PrivacyPage'))
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage'))
 
 function PageFallback() {
@@ -45,11 +47,13 @@ export default function App() {
             <Route path="/services" element={<ServicesPage />} />
             <Route path="/clients" element={<ClientsPage />} />
             <Route path="/contact" element={<ContactPage />} />
+            <Route path="/privacy" element={<PrivacyPage />} />
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </Suspense>
       </main>
       <Footer />
+      <FloatingContact />
     </MotionConfig>
   )
 }
