@@ -24,10 +24,10 @@ export function Strengths() {
           </div>
           <div className="lg:col-span-5 relative">
             <RevealImage
-              src="/images/handshake.webp"
-              alt="Handshake between contractor and client"
+              src="/images/crowne-plaza-entrance-paved.jpg"
+              alt="Finished architectural interlock roadway entrance by SSIB Infra"
               className="aspect-[16/9] border border-white/15 bg-ink-900 shadow-2xl"
-              imgClassName="object-[60%_center]"
+              imgClassName="object-cover"
             />
           </div>
         </div>
@@ -108,8 +108,8 @@ export function Fleet() {
     <section id="fleet" className="bg-paper py-24 sm:py-32" aria-labelledby="fleet-heading">
       <div className="container-x grid gap-4 lg:grid-cols-12">
         <RevealImage
-          src="/images/machine-grader.webp"
-          alt="Motor grader from the SSIB fleet on a gravel site"
+          src="/images/volvo-roller-compaction.jpg"
+          alt="Volvo tandem vibratory roller and asphalt compaction fleet"
           className="aspect-[4/3] bg-silver-200 lg:col-span-5 lg:aspect-auto"
         />
         <div className="flex flex-col bg-ink-900 p-8 text-white sm:p-12 lg:col-span-7">

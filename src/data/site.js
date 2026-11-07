@@ -109,8 +109,8 @@ export const services = [
     description:
       'Rock cutting and boulder breaking for site development on demanding terrain — from Smart City Kochi to the Idukki Medical College site.',
     highlights: ['Smart City, Kochi', 'Infopark, Kochi', 'Idukki Medical College'],
-    image: img('rock-quarry.webp'),
-    alt: 'Heavy rock drilling and precision cutting on granite rock face',
+    image: img('jcb-paving-excavation.jpg'),
+    alt: 'Heavy excavation, controlled cutting and site preparation on rugged terrain',
   },
   {
     id: 'paving',
@@ -283,7 +283,7 @@ export const featuredClientLogos = [
     brand: 'Grand Hyatt Kochi Bolgatty',
     subtitle: 'Luxury Hospitality & Conventions',
     logo: '/images/clients/grand-hyatt.svg',
-    badge: '/images/clients/grand-hyatt.jpg',
+    badge: '/images/clients/grand-hyatt.svg',
     location: 'Bolgatty Island, Kochi',
     scope: 'Road Tarring, Interlock Paving Promenade & Bulk Earthworks',
     value: '₹18 Cr',
@@ -338,8 +338,8 @@ export const featuredClientLogos = [
     name: 'Galfar',
     brand: 'Galfar Engineering & Contracting SAOG',
     subtitle: 'Engineering & Construction Leader',
-    logo: '/images/clients/galfar.jpg',
-    badge: '/images/clients/galfar.png',
+    logo: '/images/clients/galfar.svg',
+    badge: '/images/clients/galfar.svg',
     location: 'Kerala & GCC',
     scope: 'Major Infrastructure Subcontracts & Heavy Earthworks',
     value: '₹3 Cr',
@@ -354,7 +354,7 @@ export const clients = [
     full: 'Grand Hyatt Kochi Bolgatty (Lulu Convention Centre)',
     match: 'Grand Hyatt',
     logo: '/images/clients/grand-hyatt.svg',
-    badge: '/images/clients/grand-hyatt.jpg',
+    badge: '/images/clients/grand-hyatt.svg',
     location: 'Bolgatty Island, Kochi',
     overview: 'Full-scale civil infrastructure contracting across the premier 26-acre island resort & international convention centre, featuring heavy-duty road tarring, promenade paving, and site formation.',
   },
@@ -394,7 +394,7 @@ export const clients = [
     name: 'Galfar',
     full: 'Galfar Engineering & Contracting SAOG',
     match: 'Galfar',
-    logo: '/images/clients/galfar.jpg',
+    logo: '/images/clients/galfar.svg',
     location: 'Kerala & Regional Hubs',
     overview: 'Heavy civil subcontracting, bulk earthworks, and specialized machinery fleet mobilization for major highway and civil corridor projects.',
   },
@@ -531,10 +531,9 @@ export const galleryCategories = [
   'All',
   'Road Tarring',
   'Paving Tiles',
-  'Earthworks',
-  'Rock Cutting',
   'Machinery',
-  'Restoration',
+  'Earthworks',
+  'Building',
 ]
 
 export const gallery = [
@@ -543,40 +542,30 @@ export const gallery = [
   { src: img('resort-curb-road-finished.jpg'), category: 'Road Tarring', caption: 'Township access road — Finished bituminous asphalt with curbstone drainage & green medians' },
   { src: img('township-road-bitumen-tarring.jpg'), category: 'Road Tarring', caption: 'High-rise residential township — Bituminous road tarring and heavy rolling' },
   { src: img('wayanad-nh-scenic-highway.jpg'), category: 'Road Tarring', caption: 'Choondi–Meppadi–Vaduvanchal 15 km NH — Finished asphalt highway corridor' },
-  { src: img('city-road.webp'), category: 'Road Tarring', caption: 'Urban corridor road tarring and bituminous surface finishing' },
-  { src: img('tarring-works.webp'), category: 'Road Tarring', caption: 'High-capacity asphalt paving and rolling on commercial infrastructure corridor' },
-  { src: img('township-road-grading-inspection.jpg'), category: 'Road Tarring', caption: 'Township road formation — Site engineers inspecting subgrade rolling' },
   { src: img('resort-tarring-fleet.jpg'), category: 'Road Tarring', caption: 'Campus roadway tarring — Tipper trucks and bituminous paving crew in action' },
+  { src: img('township-road-grading-inspection.jpg'), category: 'Road Tarring', caption: 'Township road formation — Site engineers inspecting subgrade rolling' },
+  { src: img('parking-bay-tarring.jpg'), category: 'Road Tarring', caption: 'Commercial parking bays — Bituminous asphalt surface layer compaction' },
+  { src: img('resort-driveway-tarring.jpg'), category: 'Road Tarring', caption: 'Resort driveway paving — Hot mix asphalt application and rolling team' },
 
   // Precision Paving Tiles
   { src: img('crowne-plaza-entrance-paved.jpg'), category: 'Paving Tiles', caption: 'Crowne Plaza Kochi — Main entrance interlock paving with border landscaping' },
-  { src: img('campus-drainage-pavers.jpg'), category: 'Paving Tiles', caption: 'Commercial campus — Interlocking paving blocks with stormwater drainage integration' },
-  { src: img('paving-promenade.webp'), category: 'Paving Tiles', caption: 'Lulu Grand Hyatt Bolgatty — Waterfront promenade interlocking paving installation' },
   { src: img('crowne-plaza-paving-finished.jpg'), category: 'Paving Tiles', caption: 'Crowne Plaza Kochi — Finished heavy-duty interlocking paver roadway' },
+  { src: img('campus-drainage-pavers.jpg'), category: 'Paving Tiles', caption: 'Commercial campus — Interlocking paving blocks with stormwater drainage integration' },
   { src: img('commercial-parking-interlock.jpg'), category: 'Paving Tiles', caption: 'Commercial convention complex — Heavy-duty interlocking paver installation' },
-
-  // Commercial & Institutional Building Works
-  { src: img('nhai-toll-plaza-building.jpg'), category: 'Building', caption: 'NHAI Toll Plaza & Administrative Building — Multi-lane elevated toll facility on NH 66 corridor' },
-  { src: img('toll-building.webp'), category: 'Building', caption: 'Shivalaya Construction Toll Building — Structural concrete execution and elevation works' },
+  { src: img('crowne-plaza-driveway.jpg'), category: 'Paving Tiles', caption: 'Crowne Plaza Kochi — Architectural interlock entrance approach' },
+  { src: img('crowne-plaza-paving-prep.jpg'), category: 'Paving Tiles', caption: 'Subgrade and sand bedding preparation for interlocking paver installation' },
 
   // Heavy Machinery & Specialized Paver Fleet
   { src: img('apollo-sensor-paver-highway.jpg'), category: 'Machinery', caption: 'Apollo AP 600 sensor paver laying hot mix asphalt on highway works' },
   { src: img('volvo-roller-compaction.jpg'), category: 'Machinery', caption: 'Volvo asphalt vibratory compactor rolling fresh bituminous layer' },
-  { src: img('machine-grader.webp'), category: 'Machinery', caption: 'Motor grader precision subgrade leveling & formation' },
-  { src: img('fleet-trucks.webp'), category: 'Machinery', caption: 'Heavy-duty tipper truck fleet lined up for bulk earth and asphalt haulage' },
   { src: img('jcb-paving-excavation.jpg'), category: 'Machinery', caption: 'JCB backhoe loader leveling and preparing roadway alignment' },
+  { src: img('road-roller-access-way.jpg'), category: 'Machinery', caption: 'Tandem road roller executing sub-base leveling on site access corridor' },
 
   // Earthworks
-  { src: img('earth-bulldozer.webp'), category: 'Earthworks', caption: 'Heavy bulldozer bulk earth excavation and cut-and-fill formation' },
   { src: img('subgrade-earthworks-bulldozer.jpg'), category: 'Earthworks', caption: 'Subgrade formation and bulk earthworks with bulldozer and engineering team' },
-  { src: img('nh66-earthworks.webp'), category: 'Earthworks', caption: 'NH 66 six-laning earthworks — Kappirikkad to Kodungallur corridor' },
 
-  // Rock Cutting
-  { src: img('rock-quarry.webp'), category: 'Rock Cutting', caption: 'Granite quarry rock cutting and aggregate processing operations' },
-  { src: img('rock-drill.webp'), category: 'Rock Cutting', caption: 'Heavy rock drilling and precision blasting on granite rock face' },
-
-  // Landmark Restoration
-  { src: img('pamba-flood.webp'), category: 'Restoration', caption: 'Sabarimala Pamba post-flood riverbed restoration works executed for Tata Projects' },
+  // Commercial & Institutional Building Works
+  { src: img('nhai-toll-plaza-building.jpg'), category: 'Building', caption: 'NHAI Toll Plaza & Administrative Building — Multi-lane elevated toll facility on NH 66 corridor' },
 ]
 
 export const aboutStats = [
@@ -644,7 +633,7 @@ export const expertiseServices = [
     category: 'Highways & BM/BC Roads',
     description: 'Bituminous Macadam (BM) and Bituminous Concrete (BC) road infrastructure for national highways, convention centres, IT corridors, and municipal road networks.',
     highlights: ['Choondi–Vaduvanchal 15 km NH', 'Kinfra Kakkanad Infopark', '30+ Kalamassery Roads'],
-    image: img('tarring-works'),
+    image: img('township-road-bitumen-tarring.jpg'),
   },
   {
     num: '02',
@@ -652,7 +641,7 @@ export const expertiseServices = [
     category: 'Bulk Earth Excavation & Filling',
     description: 'Large-scale bulk excavation, earth cutting, grading, and site formation driven by our owned fleet of hydraulic excavators, graders, and tippers.',
     highlights: ['NH 66 Six-Laning (₹100 Cr)', 'Sobha Marina One', 'Chinmaya University'],
-    image: img('nh66-earthworks'),
+    image: img('subgrade-earthworks-bulldozer.jpg'),
   },
   {
     num: '03',
@@ -668,7 +657,7 @@ export const expertiseServices = [
     category: 'Paving Tiles & Hardscape',
     description: 'Heavy-duty interlock paving tile installation, pedestrian promenades, and architectural hardscaping for premier townships and campuses.',
     highlights: ['Grand Hyatt Bolgatty', 'Lulu International Mall', 'Cyber Tower Promenades'],
-    image: img('paving-promenade'),
+    image: img('crowne-plaza-paving-finished.jpg'),
   },
   {
     num: '05',
@@ -676,7 +665,7 @@ export const expertiseServices = [
     category: 'Controlled Rock Works & Logistics',
     description: 'Controlled rock cutting, boulder breaking, and site leveling under rigorous engineering oversight and synchronized equipment fleet dispatch.',
     highlights: ['Smart City Kochi', 'Infopark Kakkanad', 'Idukki Medical College'],
-    image: img('rock-drill'),
+    image: img('jcb-paving-excavation.jpg'),
   },
   {
     num: '06',
@@ -684,7 +673,7 @@ export const expertiseServices = [
     category: 'Restoration & Asphalt Supply',
     description: 'High-speed ecological flood restoration and in-house hot mix asphalt production from our own batch mix and drum mix plants.',
     highlights: ['Sabarimala Pamba Restoration', 'Bitumen Batch Mix Plant', 'Drum Mix Plant (90–120 TPH)'],
-    image: img('pamba-2'),
+    image: img('resort-tarring-fleet.jpg'),
   },
 ]
 
@@ -700,7 +689,7 @@ export const testimonials = [
     sector: 'National Highway Infrastructure',
     clientName: 'NHAI Consortium',
     metric: '₹100 Cr Six-Laning Section',
-    image: img('nh66-earthworks'),
+    image: img('subgrade-earthworks-bulldozer.jpg'),
     rating: 5,
   },
   {
@@ -714,7 +703,7 @@ export const testimonials = [
     sector: 'Hospitality & Convention',
     clientName: 'Lulu International',
     metric: 'Premier Hardscape & Roads',
-    image: img('paving-promenade'),
+    image: img('crowne-plaza-entrance-paved.jpg'),
     rating: 5,
   },
   {
@@ -728,7 +717,7 @@ export const testimonials = [
     sector: 'Ecological Disaster Restoration',
     clientName: 'Tata Projects Partner',
     metric: 'Emergency Fleet Mobilisation',
-    image: img('pamba-2'),
+    image: img('wayanad-nh-scenic-highway.jpg'),
     rating: 5,
   },
   {
@@ -742,7 +731,7 @@ export const testimonials = [
     sector: 'Commercial Technology Campus',
     clientName: 'SmartCity & Infopark',
     metric: 'Precision Campus Excavation',
-    image: img('rock-drill'),
+    image: img('jcb-paving-excavation.jpg'),
     rating: 5,
   },
 ]
