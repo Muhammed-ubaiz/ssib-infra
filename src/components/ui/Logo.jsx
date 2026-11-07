@@ -1,4 +1,4 @@
-// The official SSIB logo artwork from user vector specification.
+// The official SSIB logo artwork in the signature Royal Blue identity (#0000FE).
 
 export function LogoMark({ className = 'h-10 w-auto sm:h-11', tone = 'light' }) {
   const isDark = tone === 'dark'
@@ -8,7 +8,7 @@ export function LogoMark({ className = 'h-10 w-auto sm:h-11', tone = 'light' }) 
       fill="currentColor"
       xmlns="http://www.w3.org/2000/svg"
       className={`transition-transform duration-300 group-hover:scale-105 shrink-0 ${
-        isDark ? 'text-white' : 'text-ink-950'
+        isDark ? 'text-copper-400' : 'text-copper-500'
       } ${className}`}
       aria-label="SSIB Monogram"
     >
@@ -27,8 +27,8 @@ export function LogoFull({ className = '', tone = 'light' }) {
       <img
         src={isDark ? '/images/logo-ssib-white.png' : '/images/logo-ssib.png'}
         alt="SSIB Infra Builders Private Limited"
-        width="786"
-        height="482"
+        width="827"
+        height="504"
         className="h-auto w-full max-w-[320px] drop-shadow-sm"
       />
     </div>
@@ -43,14 +43,14 @@ export function LogoLockup({ className = '', tone = 'light' }) {
       <span className="flex flex-col leading-none">
         <span
           className={`font-display text-[1.18rem] font-black tracking-[0.12em] transition-colors duration-300 ${
-            isDark ? 'text-white' : 'text-ink-950'
+            isDark ? 'text-white' : 'text-copper-600'
           }`}
         >
           SSIB
         </span>
         <span
           className={`mt-1 text-[0.62rem] font-semibold tracking-[0.18em] uppercase transition-colors duration-300 ${
-            isDark ? 'text-silver-300' : 'text-ink-600'
+            isDark ? 'text-copper-200' : 'text-copper-700'
           }`}
         >
           Infra Builders Pvt Ltd

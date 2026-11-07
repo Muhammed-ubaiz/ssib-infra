@@ -163,8 +163,8 @@ export default function Hero() {
             </Button>
             <Button
               to="/contact"
-              variant="ghostLight"
-              className="px-8 py-3.5 text-sm font-semibold tracking-wider uppercase hover:bg-white hover:text-ink-950"
+              variant="copper"
+              className="px-8 py-3.5 text-sm font-semibold tracking-wider uppercase"
             >
               Contact Us
             </Button>

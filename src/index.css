@@ -1,36 +1,54 @@
 @import 'tailwindcss';
 
-/* Brand tokens — sampled from the official SSIB logo (monochrome architectural identity: obsidian, titanium, platinum, silver) */
+/* Brand tokens — sampled from the official SSIB logo (vibrant Royal Blue architectural identity: #0000fe) */
 @theme {
   --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
   --font-display: 'Archivo', 'Inter', ui-sans-serif, system-ui, sans-serif;
 
-  --color-copper-50: #f8fafc;
-  --color-copper-100: #f1f5f9;
-  --color-copper-200: #e2e8f0;
-  --color-copper-300: #cbd5e1;
-  --color-copper-400: #94a3b8;
-  --color-copper-500: #334155;
-  --color-copper-600: #1e293b;
-  --color-copper-700: #0f172a;
-  --color-copper-800: #090d16;
+  /* Official SSIB Royal Blue Palette (#0000FE) mapped to primary tokens */
+  --color-copper-50: #eff4ff;
+  --color-copper-100: #dbe8fe;
+  --color-copper-200: #bfd6fe;
+  --color-copper-300: #60a5fa;
+  --color-copper-400: #2563eb;
+  --color-copper-500: #0000fe;
+  --color-copper-600: #0000d6;
+  --color-copper-700: #000099;
+  --color-copper-800: #000066;
+  --color-copper-900: #060e2e;
+  --color-copper-950: #030718;
 
-  --color-silver-50: #fafafa;
-  --color-silver-100: #f4f4f5;
-  --color-silver-200: #e4e4e7;
-  --color-silver-300: #d4d4d8;
-  --color-silver-400: #a1a1aa;
-  --color-silver-500: #71717a;
-  --color-silver-600: #52525b;
+  /* Semantic brand blue alias */
+  --color-brand-50: #eff4ff;
+  --color-brand-100: #dbe8fe;
+  --color-brand-200: #bfd6fe;
+  --color-brand-300: #60a5fa;
+  --color-brand-400: #2563eb;
+  --color-brand-500: #0000fe;
+  --color-brand-600: #0000d6;
+  --color-brand-700: #000099;
+  --color-brand-800: #000066;
+  --color-brand-900: #060e2e;
+  --color-brand-950: #030718;
 
-  --color-ink-950: #090a0c;
-  --color-ink-900: #111215;
-  --color-ink-800: #181a1f;
-  --color-ink-700: #24272e;
-  --color-ink-600: #3f434d;
-  --color-ink-500: #5c6270;
+  /* Clean architectural silver / cool gray */
+  --color-silver-50: #fafbfc;
+  --color-silver-100: #f1f4f9;
+  --color-silver-200: #e2e7f0;
+  --color-silver-300: #cbd5e1;
+  --color-silver-400: #94a3b8;
+  --color-silver-500: #64748b;
+  --color-silver-600: #475569;
 
-  --color-paper: #fafafa;
+  /* Deep corporate midnight ink */
+  --color-ink-950: #080c18;
+  --color-ink-900: #0f172a;
+  --color-ink-800: #1e293b;
+  --color-ink-700: #334155;
+  --color-ink-600: #475569;
+  --color-ink-500: #64748b;
+
+  --color-paper: #f8fafc;
 
   --ease-premium: cubic-bezier(0.22, 1, 0.36, 1);
 }
@@ -53,11 +71,11 @@
     scroll-margin-top: 72px;
   }
   ::selection {
-    background: var(--color-ink-900);
+    background: #0000fe;
     color: #ffffff;
   }
   :focus-visible {
-    outline: 2px solid var(--color-ink-950);
+    outline: 2px solid #0000fe;
     outline-offset: 3px;
   }
 }
@@ -78,13 +96,13 @@
     @apply block h-px w-8 bg-current opacity-60;
   }
   .text-copper-gradient {
-    background: linear-gradient(110deg, #090a0c 0%, #1e293b 35%, #475569 65%, #090a0c 100%);
+    background: linear-gradient(110deg, #000099 0%, #0000fe 40%, #2563eb 70%, #000099 100%);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
   }
   .text-copper-gradient-light {
-    background: linear-gradient(110deg, #ffffff 0%, #e2e8f0 35%, #94a3b8 65%, #ffffff 100%);
+    background: linear-gradient(110deg, #ffffff 0%, #bfd6fe 30%, #60a5fa 65%, #ffffff 100%);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;

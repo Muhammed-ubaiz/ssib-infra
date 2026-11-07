@@ -3,17 +3,19 @@ import { ArrowUpRight } from 'lucide-react'
 
 const variants = {
   copper:
-    'bg-ink-950 text-white hover:bg-black border border-white/10 shadow-[0_10px_30px_-12px_rgba(0,0,0,0.6)]',
+    'bg-copper-500 text-white hover:bg-copper-600 border border-copper-400/40 shadow-[0_10px_30px_-10px_rgba(0,0,254,0.45)] active:scale-[0.98]',
+  brand:
+    'bg-copper-500 text-white hover:bg-copper-600 border border-copper-400/40 shadow-[0_10px_30px_-10px_rgba(0,0,254,0.45)] active:scale-[0.98]',
   white:
-    'bg-white !text-ink-950 hover:bg-silver-200 border border-white shadow-[0_10px_30px_rgba(0,0,0,0.5)]',
+    'bg-white !text-ink-950 hover:bg-copper-50 border border-white shadow-[0_10px_30px_rgba(0,0,0,0.4)]',
   light:
-    'bg-white !text-ink-950 hover:bg-silver-100 border border-silver-200 shadow-sm',
+    'bg-white !text-copper-700 hover:bg-copper-50 border border-copper-200 shadow-sm',
   ghostLight:
-    'border border-white/35 text-white hover:border-white hover:bg-white/10 backdrop-blur-sm',
+    'border border-white/35 text-white hover:border-copper-400 hover:bg-white/15 backdrop-blur-sm',
   dark:
-    'bg-ink-900 text-white hover:bg-ink-700',
+    'bg-ink-900 text-white hover:bg-copper-600',
   outline:
-    'border border-ink-900/20 text-ink-900 hover:border-ink-900 hover:bg-ink-900 hover:text-white',
+    'border border-copper-500/30 text-copper-600 hover:border-copper-500 hover:bg-copper-500 hover:text-white',
 }
 
 export default function Button({ to, href, variant = 'copper', icon: Icon = ArrowUpRight, children, className = '', ...rest }) {

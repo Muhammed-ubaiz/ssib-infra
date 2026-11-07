@@ -76,7 +76,7 @@ export default function Navbar() {
                       {isActive && (
                         <motion.span
                           layoutId="active-nav-dot"
-                          className="absolute inset-x-4 -bottom-1 h-[2px] bg-white shadow-[0_0_8px_rgba(255,255,255,0.8)]"
+                          className="absolute inset-x-4 -bottom-1 h-[2px] bg-copper-400 shadow-[0_0_10px_rgba(0,0,254,0.8)]"
                           transition={{ type: 'spring', stiffness: 380, damping: 34 }}
                         />
                       )}
@@ -92,7 +92,7 @@ export default function Navbar() {
               <a
                 href={contact.phoneHref}
                 aria-label="Call SSIB Office Directly"
-                className="lg:hidden flex h-10 w-10 items-center justify-center border border-white/20 bg-white/10 text-white shadow-sm hover:bg-white hover:text-ink-950 transition-all active:scale-95"
+                className="lg:hidden flex h-10 w-10 items-center justify-center border border-copper-400/30 bg-copper-500/20 text-copper-300 shadow-sm hover:bg-copper-500 hover:text-white transition-all active:scale-95"
               >
                 <Phone className="h-4 w-4" />
               </a>
@@ -100,11 +100,11 @@ export default function Navbar() {
               {/* Desktop CTA Button */}
               <Link
                 to="/contact"
-                className="group hidden sm:inline-flex min-h-11 items-center gap-2 border border-white/20 bg-white px-5 text-[0.82rem] font-bold tracking-wider !text-ink-950 uppercase transition-all duration-300 ease-premium hover:bg-silver-200 hover:border-white hover:shadow-[0_0_20px_rgba(255,255,255,0.3)]"
+                className="group hidden sm:inline-flex min-h-11 items-center gap-2 border border-copper-400/40 bg-copper-500 px-5 text-[0.82rem] font-bold tracking-wider text-white uppercase transition-all duration-300 ease-premium hover:bg-copper-600 hover:border-copper-400 hover:shadow-[0_0_24px_rgba(0,0,254,0.4)] active:scale-95"
               >
-                <span className="!text-ink-950">Get In Touch</span>
+                <span>Get In Touch</span>
                 <ArrowUpRight
-                  className="h-4 w-4 !text-ink-950 transition-transform duration-300 ease-premium group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                  className="h-4 w-4 text-white transition-transform duration-300 ease-premium group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
                   aria-hidden="true"
                 />
               </Link>

@@ -15,7 +15,7 @@ export default function Footer() {
   return (
     <footer className="relative border-t border-white/10 bg-ink-950 text-white overflow-hidden">
       {/* Subtle ambient lighting */}
-      <div className="absolute top-0 right-0 -mr-40 -mt-40 h-96 w-96 rounded-full bg-copper-600/10 blur-[130px] pointer-events-none" />
+      <div className="absolute top-0 right-0 -mr-40 -mt-40 h-96 w-96 rounded-full bg-copper-500/20 blur-[130px] pointer-events-none" />
       <div className="grain absolute inset-0 opacity-15 pointer-events-none" />
 
       {/* Main Footer Links Grid */}
@@ -31,8 +31,8 @@ export default function Footer() {
               {company.intro}
             </p>
 
-            <div className="mt-6 inline-flex items-center gap-2 border border-white/20 bg-white/5 px-3.5 py-1.5 text-xs text-silver-200">
-              <ShieldCheck className="h-4 w-4 text-silver-300 shrink-0" />
+            <div className="mt-6 inline-flex items-center gap-2 border border-copper-400/30 bg-copper-500/10 px-3.5 py-1.5 text-xs text-copper-200">
+              <ShieldCheck className="h-4 w-4 text-copper-400 shrink-0" />
               <span>A-Class Government Licenced Contractor</span>
             </div>
 
