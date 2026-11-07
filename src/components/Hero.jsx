@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from 'react'
-import { motion, useReducedMotion, useScroll, useTransform, AnimatePresence } from 'framer-motion'
-import { ArrowDown, Play, Pause, MapPin, ChevronLeft, ChevronRight, Film, Image as ImageIcon } from 'lucide-react'
+import { motion, useReducedMotion, useScroll, useTransform } from 'framer-motion'
+import { ArrowDown, Play, Pause, ArrowUpRight } from 'lucide-react'
 import Button from './ui/Button'
-import { company, heroSlides } from '../data/site'
+import { company } from '../data/site'
 
 const ease = [0.22, 1, 0.36, 1]
 
@@ -11,10 +11,8 @@ export default function Hero() {
   const videoRef = useRef(null)
   const reduce = useReducedMotion()
 
-  const [mediaMode, setMediaMode] = useState('photo') // 'photo' by default for pristine crystal-clear imagery
   const [videoLoaded, setVideoLoaded] = useState(false)
   const [videoPlaying, setVideoPlaying] = useState(true)
-  const [activeSlide, setActiveSlide] = useState(0)
 
   // Scroll parallax
   const { scrollYProgress } = useScroll({
@@ -31,23 +29,6 @@ export default function Hero() {
     window.scrollTo(0, 0)
   }, [])
 
-  // Preload all high-definition hero slides
-  useEffect(() => {
-    heroSlides.forEach((s) => {
-      const img = new Image()
-      img.src = s.src
-    })
-  }, [])
-
-  // Smooth automatic rotation for photography showcase
-  useEffect(() => {
-    if (reduce || mediaMode !== 'photo') return
-    const timer = setInterval(() => {
-      setActiveSlide((prev) => (prev + 1) % heroSlides.length)
-    }, 6000)
-    return () => clearInterval(timer)
-  }, [reduce, mediaMode])
-
   const toggleVideoPlay = () => {
     if (!videoRef.current) return
     if (videoPlaying) {
@@ -56,18 +37,6 @@ export default function Hero() {
     } else {
       videoRef.current.play()
       setVideoPlaying(true)
-    }
-  }
-
-  const toggleMediaMode = () => {
-    if (mediaMode === 'photo') {
-      setMediaMode('video')
-      setVideoPlaying(true)
-      if (videoRef.current) videoRef.current.play()
-    } else {
-      setMediaMode('photo')
-      if (videoRef.current) videoRef.current.pause()
-      setVideoPlaying(false)
     }
   }
 
@@ -80,32 +49,7 @@ export default function Hero() {
     >
       {/* Background Media Container with Parallax */}
       <motion.div className="absolute inset-0 -z-20 overflow-hidden" style={{ y: mediaY }}>
-        {/* Crystal-Clear Real Project Photography Slideshow (Default) */}
-        <AnimatePresence initial={false} mode="sync">
-          {mediaMode === 'photo' && (
-            <motion.div
-              key={activeSlide}
-              className="absolute inset-0"
-              initial={{ opacity: 0, scale: 1.05 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
-            >
-              <img
-                src={heroSlides[activeSlide].src}
-                alt={heroSlides[activeSlide].alt}
-                fetchPriority="high"
-                className="h-full w-full object-cover object-center"
-                style={{
-                  filter: 'contrast(1.04) saturate(1.08) brightness(1.0)',
-                  imageRendering: '-webkit-optimize-contrast',
-                }}
-              />
-            </motion.div>
-          )}
-        </AnimatePresence>
-
-        {/* Cinematic Video Element (When Video Mode Active) */}
+        {/* Cinematic Video Element — optimized for vivid clarity & high definition */}
         <video
           ref={videoRef}
           autoPlay
@@ -114,14 +58,19 @@ export default function Hero() {
           playsInline
           onLoadedData={() => setVideoLoaded(true)}
           className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ${
-            mediaMode === 'video' ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+            videoLoaded ? 'opacity-100' : 'opacity-0'
           }`}
           style={{ filter: 'contrast(1.05) saturate(1.1) brightness(1.02)' }}
         >
           <source src="/videos/grand_hyatt_kochi_bolgatty_mast.webm" type="video/webm" />
         </video>
 
-        {/* Ultra-clear gradient overlays: focused vignette behind text only, leaving photography 100% visible */}
+        {/* Ambient fallback gradient when loading */}
+        {!videoLoaded && (
+          <div className="absolute inset-0 bg-gradient-to-br from-ink-950 via-brand-dark/40 to-ink-950" />
+        )}
+
+        {/* Ultra-clear gradient overlays: focused vignette behind text only, leaving visual clarity intact */}
         <div className="absolute inset-0 bg-gradient-to-r from-ink-950/85 via-ink-950/40 to-transparent pointer-events-none" />
         <div className="absolute inset-0 bg-gradient-to-t from-ink-950/80 via-transparent to-ink-950/25 pointer-events-none" />
 
@@ -160,121 +109,79 @@ export default function Hero() {
             </span>
           </h1>
 
-          {/* Short Professional Company Introduction */}
+          {/* Subtitle */}
           <motion.p
-            className="mt-6 max-w-xl text-base sm:text-lg leading-relaxed text-silver-100 font-light drop-shadow-[0_2px_12px_rgba(0,0,0,0.85)]"
-            initial={{ opacity: 0, y: 16 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease, delay: 0.55 }}
+            className="mt-6 max-w-2xl text-base sm:text-lg md:text-xl font-light leading-relaxed text-silver-200"
           >
-            Delivering landmark highways, bulk earthworks, and architectural infrastructure with unyielding precision across Kerala since {company.founded}.
+            Engineering resilient transportation corridors, heavy civil foundations, and industrial
+            ecosystems across Kerala with German-calibrated paving tech and self-owned machinery fleets.
           </motion.p>
 
-          {/* Action Buttons: Explore Projects and Contact Us */}
+          {/* Micro Stats Bar */}
           <motion.div
-            className="mt-8 flex flex-wrap items-center gap-4"
-            initial={{ opacity: 0, y: 18 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease, delay: 0.7 }}
+            transition={{ duration: 0.8, ease, delay: 0.65 }}
+            className="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 border-y border-white/10 py-4 max-w-3xl"
+          >
+            <div>
+              <div className="font-display text-xl sm:text-2xl font-bold text-white tracking-tight">100+ km</div>
+              <div className="text-[0.7rem] uppercase tracking-wider text-silver-300 font-mono mt-0.5">Paved Roads</div>
+            </div>
+            <div>
+              <div className="font-display text-xl sm:text-2xl font-bold text-copper-400 tracking-tight">15+ Yrs</div>
+              <div className="text-[0.7rem] uppercase tracking-wider text-silver-300 font-mono mt-0.5">Engineering</div>
+            </div>
+            <div>
+              <div className="font-display text-xl sm:text-2xl font-bold text-white tracking-tight">50+ Fleet</div>
+              <div className="text-[0.7rem] uppercase tracking-wider text-silver-300 font-mono mt-0.5">Heavy Assets</div>
+            </div>
+            <div>
+              <div className="font-display text-xl sm:text-2xl font-bold text-copper-400 tracking-tight">ISO 9001</div>
+              <div className="text-[0.7rem] uppercase tracking-wider text-silver-300 font-mono mt-0.5">Certified</div>
+            </div>
+          </motion.div>
+
+          {/* Primary Actions & Video Controls */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease, delay: 0.75 }}
+            className="mt-8 flex flex-wrap items-center gap-4"
           >
             <Button
-              to="/projects"
-              variant="white"
-              className="px-8 py-3.5 text-sm font-bold tracking-wider uppercase"
+              href="#projects"
+              variant="primary"
+              size="lg"
+              className="group shadow-2xl shadow-copper-500/25"
             >
-              Explore Projects
+              <span>Explore Projects</span>
+              <ArrowUpRight
+                className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                aria-hidden="true"
+              />
             </Button>
-            <Button
-              to="/contact"
-              variant="copper"
-              className="px-8 py-3.5 text-sm font-semibold tracking-wider uppercase"
-            >
-              Contact Us
+            <Button href="#contact" variant="secondary" size="lg">
+              Get in Touch
             </Button>
 
-            {/* Media Mode Toggle (Photo Slideshow vs Drone Video) */}
-            <button
-              type="button"
-              onClick={toggleMediaMode}
-              className="inline-flex items-center gap-2 border border-white/20 bg-ink-950/60 px-4 py-3 text-xs tracking-wider text-white uppercase backdrop-blur-md transition-all hover:bg-white hover:text-ink-950 active:scale-95 ml-1"
-              aria-label={mediaMode === 'photo' ? 'Switch to Drone Video' : 'Switch to Photos'}
-            >
-              {mediaMode === 'photo' ? (
-                <>
-                  <Film className="h-4 w-4 text-copper-300" />
-                  <span className="text-[0.72rem] font-bold">Watch Drone Video</span>
-                </>
-              ) : (
-                <>
-                  <ImageIcon className="h-4 w-4 text-copper-300" />
-                  <span className="text-[0.72rem] font-bold">View Clear Photos</span>
-                </>
-              )}
-            </button>
-
-            {mediaMode === 'video' && videoLoaded && (
+            {videoLoaded && (
               <button
                 type="button"
                 onClick={toggleVideoPlay}
-                className="inline-flex items-center gap-1.5 px-3 py-2 text-xs tracking-wider text-silver-300 uppercase hover:text-white transition-colors"
+                className="inline-flex items-center gap-1.5 px-3 py-2 text-xs tracking-wider text-silver-300 uppercase hover:text-white transition-colors ml-1"
                 aria-label={videoPlaying ? 'Pause video' : 'Play video'}
               >
                 {videoPlaying ? <Pause className="h-3.5 w-3.5" /> : <Play className="h-3.5 w-3.5" />}
-                <span className="text-[0.7rem]">{videoPlaying ? 'Pause' : 'Play'}</span>
+                <span className="text-[0.7rem]">{videoPlaying ? 'Pause Video' : 'Play Video'}</span>
               </button>
             )}
           </motion.div>
         </div>
       </motion.div>
-
-      {/* Interactive Project Slide Badge & Controls (Bottom Right) */}
-      {mediaMode === 'photo' && (
-        <div className="hidden md:flex absolute bottom-8 right-8 lg:right-14 z-20 items-end gap-3 pointer-events-auto">
-          <motion.div
-            key={activeSlide}
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 0.4 }}
-            className="border border-white/15 bg-ink-950/90 p-4 backdrop-blur-md max-w-sm text-left shadow-2xl rounded-sm"
-          >
-            <div className="flex items-center justify-between gap-3 text-[0.65rem] font-mono uppercase tracking-wider text-copper-300">
-              <span className="flex items-center gap-1.5">
-                <span className="h-1.5 w-1.5 rounded-full bg-copper-400 animate-pulse" />
-                {heroSlides[activeSlide].tag}
-              </span>
-              <span className="text-silver-400 font-mono">0{activeSlide + 1} / 0{heroSlides.length}</span>
-            </div>
-            <p className="font-display mt-1 text-sm font-bold text-white tracking-tight">
-              {heroSlides[activeSlide].project}
-            </p>
-            <p className="mt-1 text-xs text-silver-300 flex items-center gap-1">
-              <MapPin className="h-3.5 w-3.5 text-copper-400 shrink-0" />
-              <span>{heroSlides[activeSlide].location}</span>
-            </p>
-          </motion.div>
-
-          {/* Slide Navigation Buttons */}
-          <div className="flex flex-col gap-1.5">
-            <button
-              type="button"
-              onClick={() => setActiveSlide((prev) => (prev - 1 + heroSlides.length) % heroSlides.length)}
-              aria-label="Previous slide"
-              className="flex h-9 w-9 items-center justify-center border border-white/15 bg-ink-950/85 text-white hover:bg-copper-600 hover:border-copper-500 transition-colors active:scale-95"
-            >
-              <ChevronLeft className="h-4 w-4" />
-            </button>
-            <button
-              type="button"
-              onClick={() => setActiveSlide((prev) => (prev + 1) % heroSlides.length)}
-              aria-label="Next slide"
-              className="flex h-9 w-9 items-center justify-center border border-white/15 bg-ink-950/85 text-white hover:bg-copper-600 hover:border-copper-500 transition-colors active:scale-95"
-            >
-              <ChevronRight className="h-4 w-4" />
-            </button>
-          </div>
-        </div>
-      )}
 
       {/* Elegant Minimal Scroll Indicator */}
       <div className="relative z-10 pb-8 flex justify-center">
