@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from 'react'
-import { motion, useReducedMotion, useScroll, useTransform, AnimatePresence } from 'framer-motion'
-import { ArrowDown, Play, Pause, ArrowUpRight } from 'lucide-react'
+import { motion, useReducedMotion, useScroll, useTransform } from 'framer-motion'
+import { ArrowDown, Play, Pause } from 'lucide-react'
 import Button from './ui/Button'
-import { company, heroSlides } from '../data/site'
+import { company } from '../data/site'
 
 const ease = [0.22, 1, 0.36, 1]
 
@@ -13,7 +13,6 @@ export default function Hero() {
 
   const [videoLoaded, setVideoLoaded] = useState(false)
   const [videoPlaying, setVideoPlaying] = useState(true)
-  const [activeSlide, setActiveSlide] = useState(0)
 
   // Scroll parallax
   const { scrollYProgress } = useScroll({
@@ -29,19 +28,6 @@ export default function Hero() {
   useEffect(() => {
     window.scrollTo(0, 0)
   }, [])
-
-  // Preload slides for fallback/smooth cross-fade
-  useEffect(() => {
-    if (reduce) return
-    heroSlides.forEach((s) => {
-      const img = new Image()
-      img.src = s.src
-    })
-    const timer = setInterval(() => {
-      setActiveSlide((prev) => (prev + 1) % heroSlides.length)
-    }, 7000)
-    return () => clearInterval(timer)
-  }, [reduce])
 
   const toggleVideo = () => {
     if (!videoRef.current) return
@@ -61,9 +47,9 @@ export default function Hero() {
       aria-label="Introduction"
       className="relative isolate flex min-h-[100svh] flex-col justify-between overflow-hidden bg-ink-950 text-white"
     >
-      {/* Background Media with Parallax */}
+      {/* Background Media with Parallax — Pure Video Only */}
       <motion.div className="absolute inset-0 -z-20 overflow-hidden" style={{ y: mediaY }}>
-        {/* Cinematic Video Element — optimized for vivid clarity */}
+        {/* Cinematic Video Element — pure, crisp, vivid clarity */}
         <video
           ref={videoRef}
           autoPlay
@@ -72,32 +58,19 @@ export default function Hero() {
           playsInline
           onLoadedData={() => setVideoLoaded(true)}
           className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ${
-            videoLoaded && videoPlaying ? 'opacity-95' : 'opacity-0'
+            videoLoaded ? 'opacity-95' : 'opacity-0'
           }`}
           style={{ filter: 'contrast(1.04) saturate(1.08) brightness(1.0)' }}
         >
           <source src="/videos/grand_hyatt_kochi_bolgatty_mast.webm" type="video/webm" />
         </video>
 
-        {/* Fallback & Real Photography slideshow when video is paused or loading */}
-        <AnimatePresence initial={false}>
-          {(!videoLoaded || !videoPlaying) && (
-            <motion.img
-              key={activeSlide}
-              src={heroSlides[activeSlide].src}
-              alt={heroSlides[activeSlide].alt}
-              fetchPriority="high"
-              className="absolute inset-0 h-full w-full object-cover"
-              initial={{ opacity: 0, scale: 1.05 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 1.2, ease: 'easeInOut' }}
-              style={{ filter: 'contrast(1.04) saturate(1.08)' }}
-            />
-          )}
-        </AnimatePresence>
+        {/* Ambient Dark Gradient Fallback while video streams */}
+        {!videoLoaded && (
+          <div className="absolute inset-0 bg-ink-950" />
+        )}
 
-        {/* Cinematic Gradient Overlays: keeps video & nature scenic, text 100% legible */}
+        {/* Cinematic Gradient Overlays: keeps video scenic, text 100% legible */}
         <div className="absolute inset-0 bg-gradient-to-r from-ink-950/90 via-ink-950/50 to-transparent pointer-events-none" />
         <div className="absolute inset-0 bg-gradient-to-t from-ink-950/90 via-transparent to-ink-950/30 pointer-events-none" />
 
