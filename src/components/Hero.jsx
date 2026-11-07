@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { motion, useReducedMotion, useScroll, useTransform, AnimatePresence } from 'framer-motion'
-import { ArrowDown, Play, Pause, ArrowUpRight } from 'lucide-react'
+import { ArrowDown, Play, Pause, MapPin, ChevronLeft, ChevronRight, Film, Image as ImageIcon } from 'lucide-react'
 import Button from './ui/Button'
 import { company, heroSlides } from '../data/site'
 
@@ -11,6 +11,7 @@ export default function Hero() {
   const videoRef = useRef(null)
   const reduce = useReducedMotion()
 
+  const [mediaMode, setMediaMode] = useState('photo') // 'photo' by default for pristine crystal-clear imagery
   const [videoLoaded, setVideoLoaded] = useState(false)
   const [videoPlaying, setVideoPlaying] = useState(true)
   const [activeSlide, setActiveSlide] = useState(0)
@@ -30,20 +31,24 @@ export default function Hero() {
     window.scrollTo(0, 0)
   }, [])
 
-  // Preload slides for fallback slideshow
+  // Preload all high-definition hero slides
   useEffect(() => {
-    if (reduce) return
     heroSlides.forEach((s) => {
       const img = new Image()
       img.src = s.src
     })
+  }, [])
+
+  // Smooth automatic rotation for photography showcase
+  useEffect(() => {
+    if (reduce || mediaMode !== 'photo') return
     const timer = setInterval(() => {
       setActiveSlide((prev) => (prev + 1) % heroSlides.length)
-    }, 7000)
+    }, 6000)
     return () => clearInterval(timer)
-  }, [reduce])
+  }, [reduce, mediaMode])
 
-  const toggleVideo = () => {
+  const toggleVideoPlay = () => {
     if (!videoRef.current) return
     if (videoPlaying) {
       videoRef.current.pause()
@@ -54,7 +59,17 @@ export default function Hero() {
     }
   }
 
-  const headlineWords = ['BUILDING', 'BEYOND', 'EXPECTATIONS.']
+  const toggleMediaMode = () => {
+    if (mediaMode === 'photo') {
+      setMediaMode('video')
+      setVideoPlaying(true)
+      if (videoRef.current) videoRef.current.play()
+    } else {
+      setMediaMode('photo')
+      if (videoRef.current) videoRef.current.pause()
+      setVideoPlaying(false)
+    }
+  }
 
   return (
     <section
@@ -63,9 +78,34 @@ export default function Hero() {
       aria-label="Introduction"
       className="relative isolate flex min-h-[100svh] flex-col justify-between overflow-hidden bg-ink-950 text-white"
     >
-      {/* Background Media with Parallax */}
+      {/* Background Media Container with Parallax */}
       <motion.div className="absolute inset-0 -z-20 overflow-hidden" style={{ y: mediaY }}>
-        {/* Cinematic Video Element — optimized for vivid clarity */}
+        {/* Crystal-Clear Real Project Photography Slideshow (Default) */}
+        <AnimatePresence initial={false} mode="sync">
+          {mediaMode === 'photo' && (
+            <motion.div
+              key={activeSlide}
+              className="absolute inset-0"
+              initial={{ opacity: 0, scale: 1.05 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
+            >
+              <img
+                src={heroSlides[activeSlide].src}
+                alt={heroSlides[activeSlide].alt}
+                fetchPriority="high"
+                className="h-full w-full object-cover object-center"
+                style={{
+                  filter: 'contrast(1.04) saturate(1.08) brightness(1.0)',
+                  imageRendering: '-webkit-optimize-contrast',
+                }}
+              />
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+        {/* Cinematic Video Element (When Video Mode Active) */}
         <video
           ref={videoRef}
           autoPlay
@@ -74,31 +114,14 @@ export default function Hero() {
           playsInline
           onLoadedData={() => setVideoLoaded(true)}
           className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ${
-            videoLoaded ? 'opacity-100' : 'opacity-0'
+            mediaMode === 'video' ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
           }`}
           style={{ filter: 'contrast(1.05) saturate(1.1) brightness(1.02)' }}
         >
           <source src="/videos/grand_hyatt_kochi_bolgatty_mast.webm" type="video/webm" />
         </video>
 
-        {/* Fallback & Photography slideshow with sophisticated reveal */}
-        <AnimatePresence initial={false}>
-          {(!videoLoaded || !videoPlaying) && (
-            <motion.img
-              key={activeSlide}
-              src={heroSlides[activeSlide].src}
-              alt={heroSlides[activeSlide].alt}
-              fetchPriority="high"
-              className="img-premium absolute inset-0 h-full w-full object-cover"
-              initial={{ opacity: 0, scale: 1.06 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 1.4, ease: 'easeInOut' }}
-            />
-          )}
-        </AnimatePresence>
-
-        {/* Ultra-clear gradient overlays: focused vignette behind text only, clear view of the video */}
+        {/* Ultra-clear gradient overlays: focused vignette behind text only, leaving photography 100% visible */}
         <div className="absolute inset-0 bg-gradient-to-r from-ink-950/85 via-ink-950/40 to-transparent pointer-events-none" />
         <div className="absolute inset-0 bg-gradient-to-t from-ink-950/80 via-transparent to-ink-950/25 pointer-events-none" />
 
@@ -169,20 +192,89 @@ export default function Hero() {
               Contact Us
             </Button>
 
-            {videoLoaded && (
+            {/* Media Mode Toggle (Photo Slideshow vs Drone Video) */}
+            <button
+              type="button"
+              onClick={toggleMediaMode}
+              className="inline-flex items-center gap-2 border border-white/20 bg-ink-950/60 px-4 py-3 text-xs tracking-wider text-white uppercase backdrop-blur-md transition-all hover:bg-white hover:text-ink-950 active:scale-95 ml-1"
+              aria-label={mediaMode === 'photo' ? 'Switch to Drone Video' : 'Switch to Photos'}
+            >
+              {mediaMode === 'photo' ? (
+                <>
+                  <Film className="h-4 w-4 text-copper-300" />
+                  <span className="text-[0.72rem] font-bold">Watch Drone Video</span>
+                </>
+              ) : (
+                <>
+                  <ImageIcon className="h-4 w-4 text-copper-300" />
+                  <span className="text-[0.72rem] font-bold">View Clear Photos</span>
+                </>
+              )}
+            </button>
+
+            {mediaMode === 'video' && videoLoaded && (
               <button
                 type="button"
-                onClick={toggleVideo}
-                className="inline-flex items-center gap-1.5 px-3 py-2 text-xs tracking-wider text-silver-400 uppercase hover:text-white transition-colors ml-1"
+                onClick={toggleVideoPlay}
+                className="inline-flex items-center gap-1.5 px-3 py-2 text-xs tracking-wider text-silver-300 uppercase hover:text-white transition-colors"
                 aria-label={videoPlaying ? 'Pause video' : 'Play video'}
               >
                 {videoPlaying ? <Pause className="h-3.5 w-3.5" /> : <Play className="h-3.5 w-3.5" />}
-                <span className="text-[0.7rem]">{videoPlaying ? 'Pause Video' : 'Play Video'}</span>
+                <span className="text-[0.7rem]">{videoPlaying ? 'Pause' : 'Play'}</span>
               </button>
             )}
           </motion.div>
         </div>
       </motion.div>
+
+      {/* Interactive Project Slide Badge & Controls (Bottom Right) */}
+      {mediaMode === 'photo' && (
+        <div className="hidden md:flex absolute bottom-8 right-8 lg:right-14 z-20 items-end gap-3 pointer-events-auto">
+          <motion.div
+            key={activeSlide}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.4 }}
+            className="border border-white/15 bg-ink-950/90 p-4 backdrop-blur-md max-w-sm text-left shadow-2xl rounded-sm"
+          >
+            <div className="flex items-center justify-between gap-3 text-[0.65rem] font-mono uppercase tracking-wider text-copper-300">
+              <span className="flex items-center gap-1.5">
+                <span className="h-1.5 w-1.5 rounded-full bg-copper-400 animate-pulse" />
+                {heroSlides[activeSlide].tag}
+              </span>
+              <span className="text-silver-400 font-mono">0{activeSlide + 1} / 0{heroSlides.length}</span>
+            </div>
+            <p className="font-display mt-1 text-sm font-bold text-white tracking-tight">
+              {heroSlides[activeSlide].project}
+            </p>
+            <p className="mt-1 text-xs text-silver-300 flex items-center gap-1">
+              <MapPin className="h-3.5 w-3.5 text-copper-400 shrink-0" />
+              <span>{heroSlides[activeSlide].location}</span>
+            </p>
+          </motion.div>
+
+          {/* Slide Navigation Buttons */}
+          <div className="flex flex-col gap-1.5">
+            <button
+              type="button"
+              onClick={() => setActiveSlide((prev) => (prev - 1 + heroSlides.length) % heroSlides.length)}
+              aria-label="Previous slide"
+              className="flex h-9 w-9 items-center justify-center border border-white/15 bg-ink-950/85 text-white hover:bg-copper-600 hover:border-copper-500 transition-colors active:scale-95"
+            >
+              <ChevronLeft className="h-4 w-4" />
+            </button>
+            <button
+              type="button"
+              onClick={() => setActiveSlide((prev) => (prev + 1) % heroSlides.length)}
+              aria-label="Next slide"
+              className="flex h-9 w-9 items-center justify-center border border-white/15 bg-ink-950/85 text-white hover:bg-copper-600 hover:border-copper-500 transition-colors active:scale-95"
+            >
+              <ChevronRight className="h-4 w-4" />
+            </button>
+          </div>
+        </div>
+      )}
 
       {/* Elegant Minimal Scroll Indicator */}
       <div className="relative z-10 pb-8 flex justify-center">

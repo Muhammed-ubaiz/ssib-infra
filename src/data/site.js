@@ -39,10 +39,48 @@ export const navLinks = [
 ]
 
 export const heroSlides = [
-  { src: img('tea-estate-highway-paving.jpg'), alt: 'Choondi–Meppadi–Vaduvanchal NH — Bituminous asphalt paving through Wayanad tea estates' },
-  { src: img('apollo-sensor-paver-highway.jpg'), alt: 'Apollo AP 600 sensor paver laying hot mix asphalt on highway works' },
-  { src: img('resort-curb-road-finished.jpg'), alt: 'Finished asphalt roadway with curbstone drainage and green medians' },
-  { src: img('crowne-plaza-entrance-paved.jpg'), alt: 'Finished interlocking paver entrance and driveway at Crowne Plaza Kochi' },
+  {
+    src: img('tea-estate-highway-paving.jpg'),
+    alt: 'Choondi–Meppadi–Vaduvanchal NH — Bituminous asphalt paving through Wayanad tea estates',
+    project: 'Choondi–Meppadi–Vaduvanchal 15 km NH',
+    location: 'Wayanad, Kerala',
+    tag: 'Highway Road Tarring',
+  },
+  {
+    src: img('resort-curb-road-finished.jpg'),
+    alt: 'Finished asphalt roadway with curbstone drainage and green medians',
+    project: 'Finished Highway Corridor & Kerb Drainage',
+    location: 'Township Infrastructure, Kerala',
+    tag: 'Bituminous Macadam & Curbs',
+  },
+  {
+    src: img('volvo-roller-compaction.jpg'),
+    alt: 'Volvo asphalt vibratory compactor rolling fresh bituminous layer',
+    project: 'Volvo Tandem Vibratory Compaction Fleet',
+    location: 'Highway Division, Kerala',
+    tag: 'Heavy Machinery & Rolling',
+  },
+  {
+    src: img('township-road-bitumen-tarring.jpg'),
+    alt: 'High-rise residential township — Bituminous road tarring and heavy rolling',
+    project: 'Township Arterial Road Network',
+    location: 'Ernakulam, Kerala',
+    tag: 'Dense Bituminous Macadam (DBM)',
+  },
+  {
+    src: img('crowne-plaza-entrance-paved.jpg'),
+    alt: 'Finished interlocking paver entrance and driveway at Crowne Plaza Kochi',
+    project: 'Crowne Plaza Kochi — Main Entrance',
+    location: 'Maradu, Kochi',
+    tag: 'Precision Interlocking Pavers',
+  },
+  {
+    src: img('apollo-sensor-paver-highway.jpg'),
+    alt: 'Apollo AP 600 sensor paver laying hot mix asphalt on highway works',
+    project: 'Apollo AP 600 Sensor Paver Operations',
+    location: 'NH Paving Division, Kerala',
+    tag: 'Hot-Mix Bitumen Concrete',
+  },
 ]
 
 export const heroStats = [
