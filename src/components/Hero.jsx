@@ -73,8 +73,9 @@ export default function Hero() {
           <div className="absolute inset-0 bg-ink-950" />
         )}
 
-        {/* Ultra-clear focused vignette: protects text readability on left, leaves video 100% bright & crystal clear */}
-        <div className="absolute inset-y-0 left-0 w-full md:w-3/5 bg-gradient-to-r from-ink-950/75 via-ink-950/30 to-transparent pointer-events-none" />
+        {/* Ultra-clear focused vignette: protects text readability on mobile and desktop */}
+        <div className="absolute inset-0 bg-gradient-to-r from-ink-950/90 via-ink-950/70 to-ink-950/40 sm:hidden pointer-events-none" />
+        <div className="absolute inset-y-0 left-0 hidden sm:block w-full md:w-3/5 bg-gradient-to-r from-ink-950/75 via-ink-950/30 to-transparent pointer-events-none" />
         <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-ink-950 to-transparent pointer-events-none" />
         <div className="absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-ink-950/60 to-transparent pointer-events-none" />
 
@@ -90,7 +91,7 @@ export default function Hero() {
       >
         <div className="max-w-4xl">
           {/* Large Headline: "BUILDING BEYOND EXPECTATIONS." */}
-          <h1 className="font-display mt-2 sm:mt-4 text-[2.8rem] leading-[0.98] font-extrabold tracking-[-0.035em] text-white sm:text-6xl md:text-7xl lg:text-[5.4rem] drop-shadow-[0_4px_30px_rgba(0,0,0,0.95)]">
+          <h1 className="font-display mt-2 sm:mt-4 text-[clamp(1.9rem,7.5vw,2.75rem)] leading-[0.98] font-extrabold tracking-[-0.03em] text-white sm:text-6xl md:text-7xl lg:text-[5.4rem] drop-shadow-[0_4px_30px_rgba(0,0,0,0.95)]">
             <span className="block overflow-hidden py-0.5">
               <motion.span
                 className="block text-white"
@@ -101,9 +102,9 @@ export default function Hero() {
                 BUILDING BEYOND
               </motion.span>
             </span>
-            <span className="block overflow-hidden py-0.5">
+            <span className="block overflow-hidden py-0.5 pr-2">
               <motion.span
-                className="block text-copper-gradient-light"
+                className="block text-copper-gradient-light pr-1"
                 initial={{ y: '110%' }}
                 animate={{ y: '0%' }}
                 transition={{ duration: 0.9, ease, delay: 0.3 }}
