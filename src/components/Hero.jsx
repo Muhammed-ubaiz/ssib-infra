@@ -91,10 +91,10 @@ export default function Hero() {
       >
         <div className="max-w-4xl">
           {/* Large Headline: "BUILDING BEYOND EXPECTATIONS." */}
-          <h1 className="font-display mt-2 sm:mt-4 text-[clamp(1.9rem,7.5vw,2.75rem)] leading-[0.98] font-extrabold tracking-[-0.03em] text-white sm:text-6xl md:text-7xl lg:text-[5.4rem] drop-shadow-[0_4px_30px_rgba(0,0,0,0.95)]">
+          <h1 className="font-display mt-2 sm:mt-4 text-[clamp(2.15rem,8.8vw,3.15rem)] leading-[1.04] sm:leading-[0.96] font-extrabold tracking-[-0.035em] text-white sm:text-6xl md:text-7xl lg:text-[5.4rem] drop-shadow-[0_4px_30px_rgba(0,0,0,0.95)]">
             <span className="block overflow-hidden py-0.5">
               <motion.span
-                className="block text-white"
+                className="block text-white whitespace-nowrap sm:whitespace-normal"
                 initial={{ y: '110%' }}
                 animate={{ y: '0%' }}
                 transition={{ duration: 0.9, ease, delay: 0.15 }}
@@ -104,7 +104,7 @@ export default function Hero() {
             </span>
             <span className="block overflow-hidden py-0.5 pr-2">
               <motion.span
-                className="block text-copper-gradient-light pr-1"
+                className="block text-copper-gradient-light whitespace-nowrap sm:whitespace-normal pr-1"
                 initial={{ y: '110%' }}
                 animate={{ y: '0%' }}
                 transition={{ duration: 0.9, ease, delay: 0.3 }}
