@@ -136,7 +136,7 @@ export function Fleet() {
             {[
               { src: '/images/apollo-sensor-paver-highway.jpg', label: 'Apollo AP 600 sensor paver' },
               { src: '/images/volvo-roller-compaction.jpg', label: 'Volvo tandem vibratory roller' },
-              { src: '/images/subgrade-earthworks-bulldozer.jpg', label: 'Earthmoving & grading fleet' },
+              { src: '/images/nh66-shivalaya-volvo-shihas-fleet.jpg', label: 'Heavy earthmoving & excavator fleet' },
             ].map((p, i) => (
               <Reveal key={p.label} delay={0.1 + i * 0.08} className={i === 2 ? 'hidden sm:block' : ''}>
                 <figure>

@@ -40,6 +40,13 @@ export const navLinks = [
 
 export const heroSlides = [
   {
+    src: img('nh66-shivalaya-earthworks-fleet.jpg'),
+    alt: 'NH 66 Six-Laning Earthworks & Hill Cutting for Shivalaya Construction Ltd',
+    project: 'NH 66 Six-Laning Bulk Earthworks (₹100 Cr)',
+    location: 'Kappirikkad – Kodungallur, NH 66',
+    tag: 'Bulk Earthworks & Excavator Fleet',
+  },
+  {
     src: img('tea-estate-highway-paving.jpg'),
     alt: 'Choondi–Meppadi–Vaduvanchal NH — Bituminous asphalt paving through Wayanad tea estates',
     project: 'Choondi–Meppadi–Vaduvanchal 15 km NH',
@@ -137,8 +144,8 @@ export const services = [
     description:
       'Large-volume excavation, filling and site formation — including the earthworks for six-laning of NH 66 between Kappirikkad and Kodungallur.',
     highlights: ['NH 66 six-laning (₹100 Cr)', 'Sobha Marina One, Kochi', 'Chinmaya University, Piravom'],
-    image: img('subgrade-earthworks-bulldozer.jpg'),
-    alt: 'Bulldozer and site team preparing bulk earthworks and sub-base formation',
+    image: img('nh66-shivalaya-hill-cutting.jpg'),
+    alt: 'Heavy excavator fleet and tipper trucks executing NH 66 hill cutting and bulk earthworks for Shivalaya Construction Ltd',
   },
   {
     id: 'rock',
@@ -231,15 +238,15 @@ export const featuredProjects = [
     specs: 'Dense Bituminous Macadam (DBM) · Heavy Compaction',
   },
   {
-    title: 'Subgrade Earthworks & Bulk Levelling',
-    location: 'Commercial Infrastructure Zone',
-    client: 'Commercial Development',
+    title: 'NH 66 Six-Laning Earthworks & Hill Cutting',
+    location: 'Kappirikkad – Kodungallur, NH 66',
+    client: 'Shivalaya Construction Ltd',
     category: 'Earthworks',
-    value: '₹6 Cr',
-    status: 'Completed',
-    image: img('subgrade-earthworks-bulldozer.jpg'),
-    alt: 'Earth excavation and sub-base formation with bulldozer and site team',
-    specs: 'Heavy Earthmoving · Precision Laser Subgrade Levelling',
+    value: '₹100 Cr',
+    status: 'Current',
+    image: img('nh66-shivalaya-earthworks-fleet.jpg'),
+    alt: 'Massive heavy earthmoving excavator fleet executing hill cutting on NH 66 for Shivalaya Construction Ltd',
+    specs: '₹100 Cr Bulk Earthworks · Multi-Excavator Heavy Tipper Fleet',
   },
   {
     title: 'NHAI Multi-Lane Toll Plaza & Building',
@@ -315,6 +322,18 @@ export const allProjects = [
 
 // Prominent client logos highlighted across the website
 export const featuredClientLogos = [
+  {
+    id: 'shivalaya',
+    name: 'Shivalaya',
+    brand: 'Shivalaya Construction Limited',
+    subtitle: 'National Highway Infrastructure',
+    logo: '/images/clients/shivalaya.png',
+    badge: '/images/clients/shivalaya.png',
+    location: 'NH 66 Corridor, Kerala',
+    scope: 'Six-Laning Bulk Earthworks, Hill Cutting & Toll Plazas',
+    value: '₹103.5 Cr',
+    match: 'Shivalaya',
+  },
   {
     id: 'grand-hyatt',
     name: 'Grand Hyatt',
@@ -454,6 +473,8 @@ export const clients = [
     name: 'Shivalaya Construction',
     full: 'Shivalaya Construction Limited',
     match: 'Shivalaya',
+    logo: '/images/clients/shivalaya.png',
+    badge: '/images/clients/shivalaya.png',
     location: 'NH 66 Corridor, Kerala',
     overview: 'Mega-scale highway contracting executing bulk earthworks, subgrade formation, and toll plaza infrastructure across the Kappirikkad–Kodungallur stretch.',
   },
@@ -596,10 +617,19 @@ export const gallery = [
   // Heavy Machinery & Specialized Paver Fleet
   { src: img('apollo-sensor-paver-highway.jpg'), category: 'Machinery', caption: 'Apollo AP 600 sensor paver laying hot mix asphalt on highway works' },
   { src: img('volvo-roller-compaction.jpg'), category: 'Machinery', caption: 'Volvo asphalt vibratory compactor rolling fresh bituminous layer' },
+  { src: img('nh66-shivalaya-volvo-shihas-fleet.jpg'), category: 'Machinery', caption: 'SSIB owned fleet — Volvo excavator and Tata Prima heavy tipper on NH 66 corridor' },
+  { src: img('nh66-shivalaya-nhai-tippers.jpg'), category: 'Machinery', caption: 'Heavy-duty tippers on active NHAI duty executing bulk earthmoving' },
+  { src: img('nh66-shivalaya-volvo-excavator-action.jpg'), category: 'Machinery', caption: 'High-reach Volvo excavator executing vertical bank cutting on highway corridor' },
   { src: img('jcb-paving-excavation.jpg'), category: 'Machinery', caption: 'JCB backhoe loader leveling and preparing roadway alignment' },
   { src: img('road-roller-access-way.jpg'), category: 'Machinery', caption: 'Tandem road roller executing sub-base leveling on site access corridor' },
 
-  // Earthworks
+  // Earthworks (NH 66 Six-Laning for Shivalaya Construction Ltd)
+  { src: img('nh66-shivalaya-earthworks-fleet.jpg'), category: 'Earthworks', caption: 'NH 66 Six-Laning — Multi-excavator and tipper fleet cutting laterite hill for Shivalaya Construction Ltd' },
+  { src: img('nh66-shivalaya-hill-cutting.jpg'), category: 'Earthworks', caption: 'NH 66 Kappirikkad–Kodungallur — Massive hill excavation, benching and subgrade formation' },
+  { src: img('nh66-shivalaya-excavator-loading.jpg'), category: 'Earthworks', caption: 'NH 66 Highway Corridor — Heavy hydraulic excavator loading excavated soil into tipper truck' },
+  { src: img('nh66-shivalaya-mass-excavation.jpg'), category: 'Earthworks', caption: 'NH 66 Earthworks Section — Bench cutting and mass earth excavation operations' },
+  { src: img('nh66-shivalaya-earthmoving-haulage.jpg'), category: 'Earthworks', caption: 'NH 66 Corridor — Heavy tipper fleet haulage along fresh cut highway alignment' },
+  { src: img('nh66-shivalaya-tipper-front.jpg'), category: 'Earthworks', caption: 'NH 66 Site Logistics — Heavy-duty Tata tipper and excavator clearing highway alignment' },
   { src: img('subgrade-earthworks-bulldozer.jpg'), category: 'Earthworks', caption: 'Subgrade formation and bulk earthworks with bulldozer and engineering team' },
 
   // Commercial & Institutional Building Works
@@ -679,7 +709,7 @@ export const expertiseServices = [
     category: 'Bulk Earth Excavation & Filling',
     description: 'Large-scale bulk excavation, earth cutting, grading, and site formation driven by our owned fleet of hydraulic excavators, graders, and tippers.',
     highlights: ['NH 66 Six-Laning (₹100 Cr)', 'Sobha Marina One', 'Chinmaya University'],
-    image: img('subgrade-earthworks-bulldozer.jpg'),
+    image: img('nh66-shivalaya-hill-cutting.jpg'),
   },
   {
     num: '03',
@@ -727,7 +757,7 @@ export const testimonials = [
     sector: 'National Highway Infrastructure',
     clientName: 'NHAI Consortium',
     metric: '₹100 Cr Six-Laning Section',
-    image: img('subgrade-earthworks-bulldozer.jpg'),
+    image: img('nh66-shivalaya-earthworks-fleet.jpg'),
     rating: 5,
   },
   {

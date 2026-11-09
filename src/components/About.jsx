@@ -29,8 +29,8 @@ export default function About() {
             <div className="relative overflow-hidden bg-silver-200 border border-silver-300 shadow-2xl">
               <motion.div style={{ scale: imageScale, y: imageY }} className="aspect-[4/3] sm:aspect-[16/10] lg:aspect-[4/3] w-full">
                 <img
-                  src="/images/subgrade-earthworks-bulldozer.jpg"
-                  alt="SSIB heavy earthworks and site development"
+                  src="/images/nh66-shivalaya-earthworks-fleet.jpg"
+                  alt="SSIB heavy earthmoving fleet and excavator operations on NH 66 for Shivalaya Construction Ltd"
                   className="img-premium h-full w-full object-cover"
                 />
               </motion.div>
