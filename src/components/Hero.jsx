@@ -91,20 +91,35 @@ export default function Hero() {
       >
         <div className="max-w-4xl">
           {/* Large Headline: "BUILDING BEYOND EXPECTATIONS." */}
-          <h1 className="font-display mt-2 sm:mt-4 text-[clamp(2.15rem,8.8vw,3.15rem)] leading-[1.04] sm:leading-[0.96] font-extrabold tracking-[-0.035em] text-white sm:text-6xl md:text-7xl lg:text-[5.4rem] drop-shadow-[0_4px_30px_rgba(0,0,0,0.95)]">
+          <h1 className="font-display mt-2 sm:mt-4 text-[clamp(2.4rem,8.6vw,3.15rem)] leading-[1.02] sm:leading-[0.96] font-extrabold tracking-[-0.035em] text-white sm:text-5xl md:text-6xl lg:text-7xl xl:text-[5.4rem] drop-shadow-[0_4px_30px_rgba(0,0,0,0.95)]">
+            {/* Line 1: "BUILDING" on mobile; "BUILDING BEYOND" on tablet & desktop */}
             <span className="block overflow-hidden py-0.5">
               <motion.span
-                className="block text-white whitespace-nowrap sm:whitespace-normal"
+                className="block text-white"
                 initial={{ y: '110%' }}
                 animate={{ y: '0%' }}
                 transition={{ duration: 0.9, ease, delay: 0.15 }}
               >
-                BUILDING BEYOND
+                BUILDING <span className="hidden sm:inline">BEYOND</span>
               </motion.span>
             </span>
+
+            {/* Line 2 on Mobile: "BEYOND" (hidden on tablet and desktop where it stays on line 1) */}
+            <span className="block sm:hidden overflow-hidden py-0.5">
+              <motion.span
+                className="block text-white"
+                initial={{ y: '110%' }}
+                animate={{ y: '0%' }}
+                transition={{ duration: 0.9, ease, delay: 0.22 }}
+              >
+                BEYOND
+              </motion.span>
+            </span>
+
+            {/* Line 3 on Mobile / Line 2 on Tablet & Desktop: "EXPECTATIONS." */}
             <span className="block overflow-hidden py-0.5 pr-2">
               <motion.span
-                className="block text-copper-gradient-light whitespace-nowrap sm:whitespace-normal pr-1"
+                className="block text-copper-gradient-light pr-1"
                 initial={{ y: '110%' }}
                 animate={{ y: '0%' }}
                 transition={{ duration: 0.9, ease, delay: 0.3 }}
