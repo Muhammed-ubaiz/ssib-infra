@@ -270,6 +270,61 @@ export const featuredProjects = [
     alt: 'Finished asphalt road with white curbs, stormwater drainage and green medians',
     specs: 'Finished Hot-Mix Bitumen · Kerbstone Stormwater Channels',
   },
+  {
+    title: 'Sobha Marina One, Kochi',
+    location: 'Marine Drive, Kochi',
+    client: 'Sobha Limited',
+    category: 'Earthworks',
+    value: '₹6 Cr',
+    status: 'Completed',
+    image: img('sobha-marina-one-kochi.webp'),
+    alt: 'Sobha Marina One waterfront residential landmark in Kochi with SSIB bulk earthworks and site formation',
+    specs: 'Bulk Earthworks · Waterfront Site Formation & Leveling',
+  },
+  {
+    title: 'Sobha City (Silver Estate), Thrissur',
+    location: 'Thrissur, Kerala',
+    client: 'Sobha Limited',
+    category: 'Earthworks',
+    value: '₹4 Cr',
+    status: 'Completed',
+    image: img('sobha-city-thrissur-roadway.jpg'),
+    alt: 'Finished township asphalt roadway and interlocking walkways at Sobha City Silver Estate, Thrissur',
+    specs: 'Township Bulk Earthworks · Asphalt Roadways & Hardscape',
+  },
+  {
+    title: 'Marriott Hotels Kochi — Paving & Access',
+    location: 'Kochi, Kerala',
+    client: 'Marriott / Lulu Group',
+    category: 'Paving Tiles',
+    value: '₹1 Cr',
+    status: 'Completed',
+    image: img('marriott-kochi-paving-twilight.jpg'),
+    alt: 'Heavy-duty interlocking paver driveway and entrance forecourt at Marriott Kochi',
+    specs: 'Interlocking Paver Plazas · Arterial Entry Road Tarring',
+  },
+  {
+    title: 'SmartCity Kochi — Rock Cutting & Site Prep',
+    location: 'Kakkanad, Kochi',
+    client: 'Sands Infra Build / SmartCity',
+    category: 'Rock Cutting',
+    value: '₹4 Cr',
+    status: 'Completed',
+    image: img('smartcity-kochi-gateway-road.webp'),
+    alt: 'SmartCity Kochi IT township entrance gateway and campus arterial roadway',
+    specs: 'Controlled Hydraulic Rock Cutting · Benching & Subgrade',
+  },
+  {
+    title: 'UST Global, Technopark, Trivandrum',
+    location: 'Technopark, Trivandrum',
+    client: 'Sobha Limited',
+    category: 'Road Tarring',
+    value: '₹2 Cr',
+    status: 'Completed',
+    image: img('ust-global-technopark-trivandrum.jpg'),
+    alt: 'UST Global campus at Technopark Trivandrum showing bituminous tarred road and paver walkway',
+    specs: 'Campus Bituminous Road Tarring · Kerb & Paver Walkways',
+  },
 ]
 
 // Complete project register, exactly as listed in the profile.
@@ -592,12 +647,16 @@ export const galleryCategories = [
   'Paving Tiles',
   'Machinery',
   'Earthworks',
+  'Rock Cutting',
   'Building',
 ]
 
 export const gallery = [
   // Highway & Road Tarring (High-Definition Project Site Photography)
   { src: img('tea-estate-highway-paving.jpg'), category: 'Road Tarring', caption: 'Choondi–Meppadi–Vaduvanchal NH — Bituminous asphalt paving through Wayanad tea estates' },
+  { src: img('ust-global-technopark-trivandrum.jpg'), category: 'Road Tarring', caption: 'UST Global, Technopark, Trivandrum — Bituminous campus road tarring & interlocking paver walkways (Sobha)' },
+  { src: img('sobha-city-thrissur-roadway.jpg'), category: 'Road Tarring', caption: 'Sobha City (Silver Estate), Thrissur — Finished township bituminous roadway and landscaped curb walkways' },
+  { src: img('sobha-city-thrissur-aerial.jpg'), category: 'Road Tarring', caption: 'Sobha City (Silver Estate), Thrissur — Aerial corridor of residential villa estate roadways' },
   { src: img('resort-curb-road-finished.jpg'), category: 'Road Tarring', caption: 'Township access road — Finished bituminous asphalt with curbstone drainage & green medians' },
   { src: img('township-road-bitumen-tarring.jpg'), category: 'Road Tarring', caption: 'High-rise residential township — Bituminous road tarring and heavy rolling' },
   { src: img('wayanad-nh-scenic-highway.jpg'), category: 'Road Tarring', caption: 'Choondi–Meppadi–Vaduvanchal 15 km NH — Finished asphalt highway corridor' },
@@ -608,6 +667,8 @@ export const gallery = [
 
   // Precision Paving Tiles
   { src: img('crowne-plaza-entrance-paved.jpg'), category: 'Paving Tiles', caption: 'Crowne Plaza Kochi — Main entrance interlock paving with border landscaping' },
+  { src: img('marriott-kochi-paving-twilight.jpg'), category: 'Paving Tiles', caption: 'Marriott Kochi — Heavy-duty interlocking paver entrance driveway and architectural forecourt' },
+  { src: img('marriott-kochi-entrance-plaza.jpg'), category: 'Paving Tiles', caption: 'Marriott Kochi — Drop-off portico interlocking paver plaza and arterial access roadway' },
   { src: img('crowne-plaza-paving-finished.jpg'), category: 'Paving Tiles', caption: 'Crowne Plaza Kochi — Finished heavy-duty interlocking paver roadway' },
   { src: img('campus-drainage-pavers.jpg'), category: 'Paving Tiles', caption: 'Commercial campus — Interlocking paving blocks with stormwater drainage integration' },
   { src: img('commercial-parking-interlock.jpg'), category: 'Paving Tiles', caption: 'Commercial convention complex — Heavy-duty interlocking paver installation' },
@@ -623,14 +684,19 @@ export const gallery = [
   { src: img('jcb-paving-excavation.jpg'), category: 'Machinery', caption: 'JCB backhoe loader leveling and preparing roadway alignment' },
   { src: img('road-roller-access-way.jpg'), category: 'Machinery', caption: 'Tandem road roller executing sub-base leveling on site access corridor' },
 
-  // Earthworks (NH 66 Six-Laning for Shivalaya Construction Ltd)
+  // Earthworks (NH 66 Six-Laning, Sobha & SmartCity Landmark Sites)
   { src: img('nh66-shivalaya-earthworks-fleet.jpg'), category: 'Earthworks', caption: 'NH 66 Six-Laning — Multi-excavator and tipper fleet cutting laterite hill for Shivalaya Construction Ltd' },
+  { src: img('sobha-marina-one-kochi.webp'), category: 'Earthworks', caption: 'Sobha Marina One, Kochi — Waterfront bulk earthworks, site leveling and campus formation' },
+  { src: img('smartcity-kochi-gateway-road.webp'), category: 'Earthworks', caption: 'SmartCity Kochi IT Township — Campus arterial road subgrade formation and site leveling' },
   { src: img('nh66-shivalaya-hill-cutting.jpg'), category: 'Earthworks', caption: 'NH 66 Kappirikkad–Kodungallur — Massive hill excavation, benching and subgrade formation' },
   { src: img('nh66-shivalaya-excavator-loading.jpg'), category: 'Earthworks', caption: 'NH 66 Highway Corridor — Heavy hydraulic excavator loading excavated soil into tipper truck' },
   { src: img('nh66-shivalaya-mass-excavation.jpg'), category: 'Earthworks', caption: 'NH 66 Earthworks Section — Bench cutting and mass earth excavation operations' },
   { src: img('nh66-shivalaya-earthmoving-haulage.jpg'), category: 'Earthworks', caption: 'NH 66 Corridor — Heavy tipper fleet haulage along fresh cut highway alignment' },
   { src: img('nh66-shivalaya-tipper-front.jpg'), category: 'Earthworks', caption: 'NH 66 Site Logistics — Heavy-duty Tata tipper and excavator clearing highway alignment' },
   { src: img('subgrade-earthworks-bulldozer.jpg'), category: 'Earthworks', caption: 'Subgrade formation and bulk earthworks with bulldozer and engineering team' },
+
+  // Controlled Rock Cutting & Site Preparation
+  { src: img('smartcity-kochi-twin-towers.jpg'), category: 'Rock Cutting', caption: 'SmartCity Kochi (Sands Infra Build) — Controlled hydraulic rock cutting & foundational site preparation for twin IT towers' },
 
   // Commercial & Institutional Building Works
   { src: img('nhai-toll-plaza-building.jpg'), category: 'Building', caption: 'NHAI Toll Plaza & Administrative Building — Multi-lane elevated toll facility on NH 66 corridor' },
@@ -799,7 +865,7 @@ export const testimonials = [
     sector: 'Commercial Technology Campus',
     clientName: 'SmartCity & Infopark',
     metric: 'Precision Campus Excavation',
-    image: img('jcb-paving-excavation.jpg'),
+    image: img('smartcity-kochi-gateway-road.webp'),
     rating: 5,
   },
 ]
