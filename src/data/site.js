@@ -304,15 +304,15 @@ export const featuredProjects = [
     specs: 'Interlocking Paver Plazas · Arterial Entry Road Tarring',
   },
   {
-    title: 'SmartCity Kochi — Rock Cutting & Site Prep',
+    title: 'Lulu IT Twin Towers (SmartCity Kochi)',
     location: 'Kakkanad, Kochi',
-    client: 'Sands Infra Build / SmartCity',
+    client: 'Sands Infra Build / Lulu Group',
     category: 'Rock Cutting',
     value: '₹4 Cr',
     status: 'Completed',
-    image: img('smartcity-kochi-gateway-road.webp'),
-    alt: 'SmartCity Kochi IT township entrance gateway and campus arterial roadway',
-    specs: 'Controlled Hydraulic Rock Cutting · Benching & Subgrade',
+    image: img('smartcity-kochi-twin-towers-wide.jpg'),
+    alt: 'Lulu IT Twin Towers at SmartCity Kochi with precision rock cutting and site preparation by SSIB',
+    specs: 'Controlled Hydraulic Rock Cutting · Tower Foundation Benching',
   },
   {
     title: 'UST Global, Technopark, Trivandrum',
@@ -343,7 +343,7 @@ export const allProjects = [
   { name: 'Lulu International Convention & Exhibition Centre (Grand Hyatt, Bolgatty)', client: 'Lulu', category: 'Paving Tiles', value: '₹2 Cr' },
   { name: 'Lulu International Shopping Mall, Kozhikode', client: 'Lulu', category: 'Paving Tiles', value: '₹1 Cr' },
   { name: 'Cyber Tower, Infopark, Kakkanad', client: 'Lulu', category: 'Paving Tiles', value: '₹0.5 Cr' },
-  { name: 'Smart City, Kochi', client: 'Sands Infra Build', category: 'Rock Cutting', value: '₹4 Cr' },
+  { name: 'Smart City, Kochi (Lulu IT Twin Towers)', client: 'Sands Infra Build (Lulu)', category: 'Rock Cutting', value: '₹4 Cr' },
   { name: 'Infopark, Kochi', client: 'Claysys', category: 'Rock Cutting', value: '₹2 Cr' },
   { name: 'Idukki Medical College', client: 'Rightedge Infrastructures Pvt Ltd', category: 'Rock Cutting', value: '₹5 Cr' },
   { name: 'Sabarimala Pamba riverbed desiltation & restoration', client: 'Tata', category: 'Restoration' },
@@ -696,7 +696,9 @@ export const gallery = [
   { src: img('subgrade-earthworks-bulldozer.jpg'), category: 'Earthworks', caption: 'Subgrade formation and bulk earthworks with bulldozer and engineering team' },
 
   // Controlled Rock Cutting & Site Preparation
-  { src: img('smartcity-kochi-twin-towers.jpg'), category: 'Rock Cutting', caption: 'SmartCity Kochi (Sands Infra Build) — Controlled hydraulic rock cutting & foundational site preparation for twin IT towers' },
+  { src: img('smartcity-kochi-twin-towers-wide.jpg'), category: 'Rock Cutting', caption: 'Lulu IT Twin Towers, SmartCity Kochi (Sands Infra Build) — Controlled hydraulic rock cutting & foundational site preparation' },
+  { src: img('smartcity-kochi-twin-towers.jpg'), category: 'Rock Cutting', caption: 'Lulu IT Twin Towers, SmartCity Kochi — Tower vertical elevation and campus rock cutting alignment' },
+  { src: img('smartcity-kochi-twin-towers-complex.jpg'), category: 'Rock Cutting', caption: 'SmartCity Kochi IT Campus — Foundational terrace benching and infrastructure works for twin towers' },
 
   // Commercial & Institutional Building Works
   { src: img('nhai-toll-plaza-building.jpg'), category: 'Building', caption: 'NHAI Toll Plaza & Administrative Building — Multi-lane elevated toll facility on NH 66 corridor' },
@@ -865,7 +867,7 @@ export const testimonials = [
     sector: 'Commercial Technology Campus',
     clientName: 'SmartCity & Infopark',
     metric: 'Precision Campus Excavation',
-    image: img('smartcity-kochi-gateway-road.webp'),
+    image: img('smartcity-kochi-twin-towers-wide.jpg'),
     rating: 5,
   },
 ]
